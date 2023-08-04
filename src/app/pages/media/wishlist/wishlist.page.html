@@ -1,0 +1,40 @@
+<ion-content color="light">
+  <app-category-listing
+    *ngIf="bookList; else loadingBook"
+    title="{{'MEDIA.WISHLIST.book' | translate}}"
+    [items]="bookList.results"
+    (clickItem)="navigateTo(['book','detail',$event])"
+    [enableSeeAll]="false"
+  >
+  </app-category-listing>
+
+  <ng-template #loadingBook>
+    <app-category-listing-skeleton></app-category-listing-skeleton>
+  </ng-template>
+
+  <app-category-listing
+    *ngIf="audioList; else loadingAudio"
+    title="{{'MEDIA.WISHLIST.audio' | translate}}"
+    [items]="audioList.results"
+    (clickItem)="navigateTo(['audio','detail',$event])"
+    [enableSeeAll]="false"
+  >
+  </app-category-listing>
+
+  <ng-template #loadingAudio>
+    <app-category-listing-skeleton></app-category-listing-skeleton>
+  </ng-template>
+
+  <app-category-listing
+    *ngIf="videoList; else loadingAudio"
+    title="{{'MEDIA.WISHLIST.video' | translate}}"
+    [items]="videoList.results"
+    (clickItem)="navigateTo(['video','detail',$event])"
+    [enableSeeAll]="false"
+  >
+  </app-category-listing>
+
+  <ng-template #loadingVideo>
+    <app-category-listing-skeleton></app-category-listing-skeleton>
+  </ng-template>
+</ion-content>

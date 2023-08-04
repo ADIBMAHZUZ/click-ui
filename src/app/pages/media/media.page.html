@@ -1,0 +1,32 @@
+<ion-content color="light">
+  <ion-tabs>
+    <ion-tab-bar slot="top" class="pt-sm-2" color="light" [class.d-none]="!(isTabbarVisible$ | async)">
+      <ion-tab-button tab="download" (click)="clickTab($event, 'download')">
+        <ion-icon color="dark" class="h4 mb-1" name="cloud-download"></ion-icon>
+        <ion-label color="dark" class="d-none d-sm-inline-block">{{'MEDIA.TITLES.download' | translate}}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="material" (click)="clickTab($event, 'material')">
+        <ion-icon color="dark" class="h4 mb-1" name="school"></ion-icon>
+        <ion-label color="dark" class="d-none d-sm-inline-block"
+          >{{language === 'ms' ? userInfo.library.learningMaterialTitleMs : userInfo.library.learningMaterialTitleEn}}</ion-label
+        >
+      </ion-tab-button>
+      <ion-tab-button tab="teacher-notes" (click)="clickTab($event, 'teacher-notes')">
+        <ion-icon color="dark" class="h4 mb-1" name="person-add"></ion-icon>
+        <ion-label color="dark" class="d-none d-sm-inline-block"
+          >{{language === 'ms' ? userInfo.library.teacherNotesTitleMs : userInfo.library.teacherNotesTitleEn}}</ion-label
+        >
+      </ion-tab-button>
+      <ion-tab-button tab="library" (click)="clickTab($event, 'library')">
+        <ion-icon color="dark" class="h4 mb-1" name="book"></ion-icon>
+        <ion-label color="dark" class="d-none d-sm-inline-block"
+          >{{language === 'ms' ? userInfo.library.mediaTitleMs : userInfo.library.mediaTitleEn}}</ion-label
+        >
+      </ion-tab-button>
+      <ion-tab-button tab="media-wishlist" (click)="clickTab($event, 'media-wishlist')">
+        <ion-icon color="dark" class="h4 mb-1" name="heart"></ion-icon>
+        <ion-label color="dark" class="d-none d-sm-inline-block">{{'MEDIA.TITLES.wishlist' | translate}}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

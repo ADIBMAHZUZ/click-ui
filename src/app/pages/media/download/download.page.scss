@@ -1,0 +1,33 @@
+ion-content {
+  --padding-bottom: 3.5rem;
+}
+ion-thumbnail {
+  min-width: 5rem;
+  max-height: 10rem;
+}
+h4,
+h5 {
+  font-weight: bold;
+}
+.download-item {
+  height: 10rem;
+  max-height: 10rem;
+  overflow: hidden;
+}
+ion-progress-bar {
+  height: 1.2rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 1.1rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+
+  ion-progress-bar {
+    height: 0.5rem !important;
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "LOGIN": {
+    "lang": "Language",
+    "welcome": "Welcome to",
+    "username": "Username",
+    "password": "Password",
+    "login": "Log in",
+    "forgot_password": "Forgot your password?",
+    "enter_your": "Enter your",
+    "user_re": "Username is Required",
+    "pass_re": "Password is Required",
+    "CLICk400": {
+      "header": "Invalid account",
+      "message": "Wrong username or password, please enter again."
+    },
+    "CLICk401": {
+      "header": "Inactive account",
+      "message": "The account is inactive"
+    },
+    "CLICk402": {
+      "header": "Login denied!",
+      "message": "This account is logged in more than maximum device limit. Please log out your account in other devices, then try again."
+    },
+    "CLICk403": {
+      "header": "Library is locked",
+      "message": "Your library is temporarily locked."
+    },
+    "CLICk409": {
+      "header": "Logout failed",
+      "message": "Please try again later."
+    },
+    "TOKEN_EXPIRED": {
+      "header": "Login Request!",
+      "message": "Your Librarian has just updated the maximum device limit. Please try to login again."
+    },
+    "this_account_is_using_by": "This account is using by another device.",
+    "email_is_not_exist": "Email or username is invalid.",
+    "no_internet": "No internet connection, please check.",
+    "force_return_media": "Force Return Media",
+    "mentioned_books_has_expired": "Mentioned books has expired. We had already returned it.",
+    "FORGOT_PASSWORD": {
+      "FORGOT_PASSWORD_MODAL": {
+        "request_password_token": "Request Password Token",
+        "username": "Username",
+        "email": "Email",
+        "please_enter_username": "Please enter username. ",
+        "please_enter_a_email_address": "Please enter a email address. ",
+        "_50_characters_is_maximum_permitted": "50 characters is maximum permitted. ",
+        "please_enter_a_real_email": "Please enter a real email",
+        "send": "Send",
+        "cancel": "Cancel"
+      },
+      "CHECK_TOKEN_MODAL": {
+        "confirm_email_token": "Confirm Email Token",
+        "retrieve_password_token": "Retrieve Password Token",
+        "message": "Check your email to get token.",
+        "resend_message": "The token has been resent ! Please check your email.",
+        "resend": "Resend",
+        "check": "Check",
+        "cancel": "Cancel"
+      },
+      "CREATE_NEW_TOKEN": {
+        "create_new_password": "Create New Password",
+        "new_password": "New Password",
+        "please_enter_new_password": "Please enter new password",
+        "confirm_new_password": "Confirm New Password",
+        "please_enter_confirm_password": "Please enter confirm password",
+        "password_6_characters_is_minimum_length_permitted": "Password 6 characters is minimum length permitted.",
+        "confirm_password_6_characters_is_minimum_length_permitted": "Confirm password 6 characters is minimum length permitted.",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "ALERT": {
+          "title": "Change Password",
+          "message": "Your password has been changed successfully"
+        }
+      }
+    }
+  },
+  "NAVBAR": {
+    "home": "Home",
+    "logout": "Log out",
+    "search": "Search ...",
+    "hi": "Hi",
+    "school_virtual_resource_center": "School Virtual Resource Center",
+    "ALERT": {
+      "logout": "Log out",
+      "ok": "OK",
+      "cancel": "Cancel",
+      "message": "Are you sure you want to log out?"
+    }
+  },
+  "HOME": {
+    "library": "Library Books, Videos & Musics",
+    "school_news": "School News Board",
+    "teacher_notes": "Teacher Notes",
+    "material": "Learning Materials",
+    "school_history": "The School History",
+    "student_content": "Student Content",
+    "LIBRARY": {
+      "MEDIA": {
+        "book": "Book",
+        "video": "Video",
+        "audio": "Audio"
+      },
+      "BOOK": {
+        "LIST": {
+          "see_all": "See all",
+          "search": "Search ...",
+          "latest": "Latest"
+        },
+        "DETAIL": {
+          "authors": "Author(s):",
+          "size": "Size:",
+          "paperback": "Paperback:",
+          "publisher": "Publisher:",
+          "language": "Language:",
+          "category": "Category:",
+          "remaining_borrow_times": "Remaining Borrow Times: ",
+          "available_media": "Available Media: ",
+          "preview": "Preview",
+          "view": "View",
+          "listen": "Listen",
+          "return": "Return",
+          "borrow": "Borrow",
+          "reserve": "Reserve",
+          "reserved": "Reserved",
+          "downloading": "Downloading",
+          "extend": "Extend",
+          "time_remaining": "Time remaining: ",
+          "days": "days",
+          "hours": "hours",
+          "minutes": "minutes",
+          "product_description": "Product description",
+          "no_any_preview_images": "No any preview images",
+          "continue_to_download": "Continue to Download",
+          "downloading_media_has": "Downloading Media has retrieve to download...",
+          "you_may_also_love_these_books": "You may also love these media",
+          "waiting_for_decryption": "Loading ...",
+          "ALERTS": {
+            "DO_YOU_WANT_TO_RETURN_THIS": {
+              "do_you_want_to_return_this": "Do you want to return this media ?",
+              "ok": "Ok",
+              "cancel": "Cancel"
+            },
+            "DO_YOU_WANT_TO_BORROW_THIS": {
+              "title": "Do you want to borrow this media?",
+              "message": "Your media loan expires on: "
+            },
+            "DO_YOU_WANT_TO_EXTEND_THIS": {
+              "title": "Do you want to extend this media?",
+              "message": "Your media loan expires on: "
+            },
+            "DO_YOU_WANT_TO_RESERVE_THIS": {
+              "title": "Do you want to reserve this media?"
+            },
+            "RESERVE_INFORMATION": {
+              "title": "Reserve information",
+              "message": "Your reservation priority",
+              "message1": "Do you want to cancel this reservation?"
+            },
+            "your_media_is_returned_to": "Your media is returned.",
+            "you_reach_the_limit_of": "You reached the limit of download. Please contact librarian for supports.",
+            "please_try_again_later": "please try again later",
+            "NO_INTERNET_CONNECTION": {
+              "title": "No Internet Connection",
+              "message": "Please check your internet connection again."
+            },
+            "INVALID_BOOK": {
+              "title": "Invalid book",
+              "message": "Sorry, this book has not been read. Please check your internet connection to update the newest library."
+            },
+            "RETURN_BOOK": {
+              "title": "Return book",
+              "message": "Your media was returned."
+            },
+            "CHOOSE_DATE_FAILED": {
+              "choose_date_failed": "CHOOSE DATE FAILED",
+              "please_choose_a_date_before": "Please choose a date before",
+              "please_choose_a_date_after": "Please choose a date after",
+              "a_date_after_today": "Please choose a date after today.",
+              "a_date_after_expiration_time": "Please choose a date after current expiration time",
+              "please_borrow": "Please borrow ",
+              "please_extend": "Please extend ",
+              "days_at_most": "days at most."
+            },
+            "BORROW_SUCCESSFULLY": {
+              "borrow_successfully": "BORROW SUCCESSFULLY",
+              "borrow_is_successfully__have": "Borrow is successful ! Have fun with your media."
+            },
+            "BORROW_FAILED": {
+              "borrow_failed": "BORROW FAILED",
+              "CLICk410": "Media does not found",
+              "CLICk411": "Library does not have this media",
+              "CLICk412": "This book is out of stock",
+              "CLICk413": "Reach to limit borrow",
+              "CLICk414": "Expiration time invalid",
+              "CLICk415": "You have borrowed this media"
+            },
+            "PREVIEW_FAILED": {
+              "preview_failed": "Preview failed",
+              "preview_is_not_available": "Preview is not available, please try again later."
+            },
+            "VIEW_FAILED": {
+              "view_failed": "View failed",
+              "view_is_not_available_please": "View is not available, please try again later."
+            },
+            "EXTEND_SUCCESSFULLY": {
+              "extend_successfully_": "Extend successfully !",
+              "extend_is_successful__have": "Extend is successful ! Have fun with your media."
+            },
+            "EXTEND_FAILED": {
+              "extend_failed": "Extend failed",
+              "extend_failed_please_try_again": "Extend failed. Please try again."
+            },
+            "RESERVE_SUCCESSFULLY": {
+              "title": "Reserve Successfully"
+            },
+            "RESERVE_FAILED": {
+              "title": "Reserve failed",
+              "message": "Reserve failed. Please try again."
+            },
+            "CANCEL_RESERVE_SUCCESSFULLY": {
+              "title": "Cancel Successfully",
+              "message": "Cancel reservation successfully"
+            },
+            "CANCEL_RESERVE_FAILED": {
+              "title": "Cancel Failed",
+              "message": "Cancel reservation failed. Please try again."
+            },
+            "BORROWING_TIMED_UP": {
+              "title": "Return Automatically",
+              "message": "<br/>Your media borrowed time exceeded. It's returned automatically."
+            }
+          }
+        }
+      }
+    },
+    "SCHOOL_NEWS_BOARD": {
+      "read_more": "Read More",
+      "load_more": "Loading more data ..."
+    },
+    "STUDENT_CONTENT": {
+      "read_more": "Read More",
+      "load_more": "Loading more data ..."
+    }
+  },
+  "MEDIA": {
+    "TITLES": {
+      "download": "Download",
+      "learning": "Learning Material",
+      "library": "Library",
+      "teacher_notes": "Teacher Notes",
+      "wishlist": "Wishlist"
+    },
+    "DOWNLOAD": {
+      "on_progress": "In progress...",
+      "no_media_is_downloading": "No media is downloading.",
+      "downloaded_media": "Downloaded Media",
+      "cancel": "Cancel"
+    },
+    "WISHLIST": {
+      "book": "Book",
+      "audio": "Audio",
+      "video": "Video",
+      "see_all": "See all"
+    }
+  },
+  "DASHBOARD": {
+    "hi": "Hi",
+    "dashboard": "Dashboard",
+    "book": "Book",
+    "audio": "Audio",
+    "video": "Video",
+    "all": "All",
+    "account_information": "Account Information",
+    "change_password": "Change Password",
+    "activities": "Activities",
+    "ACCOUNT_INFO": {
+      "username": "Username",
+      "email": "Email",
+      "full_name": "Full name",
+      "phone": "Phone",
+      "address": "Address",
+      "birthday": "Birthday",
+      "not_defined": "Unknown"
+    },
+    "CHANGE_PASSWORD": {
+      "current_password": "Current Password",
+      "new_password": "New Password",
+      "confirm_password": "Confirm Password",
+      "submit": "Submit",
+      "success": "Success",
+      "fail": "Fail",
+      "change_password_success": "Change Password Success! ",
+      "log_out": "Log out",
+      "new_password_must_be_at_least": "New password must be at least 6 characters",
+      "current_password_is_incorrect": "Current password is incorrect",
+      "new_password_and_confirm": "New password and confirm password are not match"
+    },
+    "ACTIVITIES": {
+      "category": "Category",
+      "type": "Type",
+      "from": "From",
+      "to": "To",
+      "date": "Date",
+      "name_of_item": "Media Name",
+      "activity": "Action"
+    }
+  },
+  "MATERIAL": {
+    "DETAIL": {
+      "download": "Download",
+      "delete": "Delete",
+      "librarian": "Librarian:",
+      "ALERTS": {
+        "DOWNLOAD_SUCCESSFULLY": {
+          "download_successfully": " SUCCESSFULLY",
+          "download_is_successfully__have": "Download is successful ! Have fun with your media."
+        },
+        "DOWNLOAD_FAIL": {
+          "download_fail": " FAIL",
+          "download_is_fail__have": "Download is fail ! Please try again."
+        },
+        "DELETED_SUCCESSFULLY": {
+          "Delete_successfully": " SUCCESSFULLY",
+          "Delete_is_successfully__have": "Delete is successful ! Thank you."
+        },
+        "DO_YOU_WANT_TO_DELETE_THIS": {
+          "do_you_want_to_delete_this": "Do you want to delete this media?",
+          "ok": "Ok",
+          "cancel": "Cancel"
+        }
+      }
+    }
+  },
+  "TEACHER_NOTES": {
+    "teachers": "Teachers",
+    "loading_more_": "Loading more ...",
+    "DETAIL": {
+      "ALERTS": {
+        "THIS_NOTE_IS_NOT_VALID_IT_WAS": {
+          "title": "Invalid note",
+          "message": "This note is not valid. It was returned automatically."
+        },
+        "NOTE_TYPE_IS_NOT_SUPPORTED": {
+          "title": "Not supported type",
+          "message": "Note type is not supported"
+        },
+        "DOWNLOADED_SUCCESSFULLY": {
+          "title": "Downloaded successfully",
+          "message": "Downloaded successfully"
+        },
+        "DOWNLOADED_FAILED": {
+          "title": "Downloaded failed",
+          "message": "Downloaded failed"
+        },
+        "REMOVE_SUCCESSFULLY": {
+          "title": "Remove successfully",
+          "message": "Remove note successfully"
+        }
+      }
+    }
+  },
+  "BETA": {
+    "header": "Ops!",
+    "message": "You can't access this content in Beta version now. It's coming soon."
+  },
+  "APP": {
+    "ALERTS": {
+      "PLUG_ALERT": {
+        "title": "Warning!",
+        "message": "For safety reason, please do not use your device while charging."
+      }
+    }
+  },
+  "HELLO": ""
+}

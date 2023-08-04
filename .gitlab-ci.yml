@@ -1,0 +1,108 @@
+image: node:latest
+stages:
+  - build
+  - deploy
+
+variables:
+  LC_ALL: 'en_US.UTF-8'
+  LANG: 'en_US.UTF-8'
+  GIT_STRATEGY: clone
+  API_URL: 'https://pinkast.biz/api/'
+  PRODUCTION: 1
+  MESSAGE_ANDROID: "[*CLICk Mobile*]\n*API_URL*: $API_URL\n*Android* has been built successfully: \"$CI_COMMIT_MESSAGE\" Hey <users/104121422729815117160>! Click to downloadd *APK* file http://192.168.9.62/click/click-mobile/-/jobs/$CI_JOB_ID/artifacts/downclickd"
+  MESSAGE_IOS: "[*CLICk Mobile*]\n*API_URL*: $API_URL\n*iOS* has been built & upclickd to *TestFlight* successfully: \"$CI_COMMIT_MESSAGE\" Hey <users/104121422729815117160>! Please update & help me test it."
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm/
+
+#########################
+###### Build Stage ######
+#########################
+build:
+  stage: build
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build:prod
+  only:
+    - develop
+    - master
+  tags:
+    - nng-ios
+  artifacts:
+    paths:
+      - www
+    expire_in: 2 hrs
+
+#########################
+###### Deploy Stage ######
+#########################
+
+upload_to_testflight:
+  stage: deploy
+  script:
+    - echo "----------------------------------------------------------------"
+    - echo "Upload to TestFlight by " $FASTLANE_USER
+    - npm run sync -- ios
+    - npm run deploy:ios
+  variables:
+    GIT_STRATEGY: none
+  retry: 2
+  only:
+    - develop
+    - master
+  tags:
+    - nng-ios
+
+build_apk:
+  stage: deploy
+  script:
+    - echo "----------------------------------------------------------------"
+    - echo "Build Android app to APK by " $FASTLANE_USER
+    - npm run sync -- android
+    - npm run deploy:android
+    - cp android/app/build/outputs/apk/debug/app-debug.apk $PWD/click.apk
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - develop
+    - master
+  tags:
+    - nng-ios
+  artifacts:
+    paths:
+      - click.apk
+    expire_in: 1 week
+
+build_electron:
+  stage: deploy
+  script:
+    - echo "----------------------------------------------------------------"
+    - echo "Build Electron app to Windows and MacOS by " $FASTLANE_USER
+    - npm run sync -- electron
+    - npm run deploy:electron
+    - mv "electron/dist/win-unpacked/Capacitor App.exe" $PWD/CLICk.exe
+    - clickWindows=$(curl -F "file=@CLICk.exe" https://file.io?expires=1w)
+    - linkWindows=$(echo "$clickWindows" | jq --raw-output '.link')
+    - mv "electron/dist/mac/Capacitor App.app" $PWD/CLICk.app
+    - clickMac=$(curl -F "file=@CLICk.app" https://file.io?expires=1w)
+    - echo clickMac
+    - linkMac=$(echo "$clickMac" | jq --raw-output '.link')
+    - echo "Windows Download Link ----- " >> link.txt
+    - echo linkWindows
+    - printenv linkWindows > link.txt
+    - echo "Mac Download Link ----- " >> link.txt
+    - printenv linkMac > link.txt
+
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - develop
+    - master
+  tags:
+    - nng-ios
+  artifacts:
+    paths:
+      - link.txt
+    expire_in: 1 week

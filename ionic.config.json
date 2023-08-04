@@ -1,0 +1,8 @@
+{
+  "name": "CLICk",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

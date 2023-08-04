@@ -1,0 +1,22 @@
+<ion-content
+  color="light"
+  [fullscreen]="true"
+  *ngIf="categoriesVM; else loading"
+>
+  <app-category-listing
+    *ngFor="let categories of categoriesVM.categories; let i=index;"
+    [title]="categories.category.name"
+    (clickTitle)="navigateTo(['see-all',categories.category.id])"
+    [items]="categories.media"
+    (clickItem)="navigateTo(['detail',$event])"
+  >
+  </app-category-listing>
+</ion-content>
+
+<ng-template #loading>
+  <ion-content color="light">
+    <app-category-listing-skeleton
+      *ngFor="let c of [1,2,3, 4, 5, 6]"
+    ></app-category-listing-skeleton>
+  </ion-content>
+</ng-template>

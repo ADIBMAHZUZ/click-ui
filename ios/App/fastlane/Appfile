@@ -1,0 +1,5 @@
+app_identifier("bz.nng.click") # The bundle identifier of your app
+apple_id("administration@nng.bz") # Your Apple email address
+
+itc_team_id("121357533") # App Store Connect Team ID
+team_id("299GL6YAPN") # Developer Portal Team ID

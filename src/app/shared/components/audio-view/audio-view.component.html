@@ -1,0 +1,45 @@
+<ion-content class="text-right">
+  <ion-button fill="clear" (click)="stop()">
+    <ion-icon name="close-circle" size="large"></ion-icon>
+  </ion-button>
+  <div class="py-1 px-3">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <ion-avatar class="shadow-lg">
+        <img
+          [src]="audioDetail?.mediaDetail?.thumbnail ? audioDetail?.mediaDetail?.thumbnail : 'assets/images/home/teachers/audio-disc.png'"
+        />
+      </ion-avatar>
+      <h5 class="text-center text-secondary mt-1 title">
+        {{ audioDetail?.mediaDetail?.author }}
+      </h5>
+      <h5 class="mt-1 title">
+        <span>
+          {{ audioDetail?.mediaDetail?.name }}
+          {{ audioDetail.title }}
+        </span>
+      </h5>
+    </div>
+    <ion-range min="0" [max]="audioDetail?.audioElement.duration" [value]="currentTime" class="py-0" (click)="updateCurrentTime()">
+    </ion-range>
+    <div class="d-flex justify-content-between time">
+      <ion-label> {{ toHHMMSS(currentTime) }} </ion-label>
+      <ion-label> {{ toHHMMSS(audioDetail?.duration) }}</ion-label>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="text-center d-flex flex-column justify-content-center align-items-center">
+      <ion-button (click)="play()" class="play-pause" *ngIf="audioDetail.audioElement.paused">
+        <ion-icon name="play" color="light"></ion-icon>
+      </ion-button>
+
+      <ion-button class="play-pause" (click)="pause()" *ngIf="!audioDetail.audioElement.paused">
+        <ion-icon name="pause" color="light"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" (click)="replay()">
+        <ion-icon name="repeat" size="large"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

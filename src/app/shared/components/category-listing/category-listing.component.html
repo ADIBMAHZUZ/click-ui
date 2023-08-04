@@ -1,0 +1,21 @@
+<ion-list *ngIf="items?.length > 0">
+  <ion-list-header class="d-flex justify-content-between align-items-center mx-1" (click)="clickTitle.emit()">
+    <ion-label color="dark" class="h5"
+      ><b>{{ title }}</b></ion-label
+    >
+    <ion-text color="dark" class="px-3 small" *ngIf="enableSeeAll"
+      ><i>{{ 'HOME.LIBRARY.BOOK.LIST.see_all' | translate }}</i></ion-text
+    >
+  </ion-list-header>
+
+  <ion-slides *ngIf="slideConfig" [options]="slideConfig" class="ml-1">
+    <ion-slide *ngFor="let item of items">
+      <ion-card (click)="emitItem(item)">
+        <img class="size-image" [src]="item.thumbnail" />
+        <ion-card-header class="px-1 py-2">
+          <ion-card-title class="truncate text-left smaller" color="dark">{{ item.name }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-list>

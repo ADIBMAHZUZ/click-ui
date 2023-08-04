@@ -1,0 +1,13 @@
+<ion-segment
+  #langselect
+  [value]="(language$ | async) || 'en'"
+  (ionChange)="useLanguage(langselect.value)"
+  color="dark"
+>
+  <ion-segment-button value="en">
+    <b>English</b>
+  </ion-segment-button>
+  <ion-segment-button value="ms">
+    <b>B.Malaysia</b>
+  </ion-segment-button>
+</ion-segment>

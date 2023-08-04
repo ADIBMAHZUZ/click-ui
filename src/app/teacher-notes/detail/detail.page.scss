@@ -1,0 +1,36 @@
+#large-image-wrapper {
+  --padding-start: 0;
+  --padding-end: 0;
+  padding-top: var(--padding-2);
+  max-height: 52vh;
+  ion-thumbnail {
+    width: 100%;
+    height: 52vh;
+    border-radius: var(--padding);
+    overflow: hidden;
+  }
+}
+ion-card {
+  height: 13rem;
+  width: 8rem;
+}
+@media (max-width: 768px) {
+  h5 {
+    font-size: 1rem;
+    margin: 0.25rem;
+  }
+  #large-image-wrapper {
+    --padding-start: 0;
+    --padding-end: 0;
+    padding-top: 1rem;
+    max-height: 10rem;
+    ion-thumbnail {
+      height: 10rem;
+    }
+  }
+
+  ion-card {
+    height: 8rem;
+    width: 5rem;
+  }
+}

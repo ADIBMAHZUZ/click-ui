@@ -1,0 +1,72 @@
+<ion-content class="d-flex flex-column h-100 mb-2 overflow-hidden position-relative" color="light">
+  <div class="login-logo py-2">
+    <ion-img src="assets/images/login/logo.png"></ion-img>
+  </div>
+
+  <h2 class="d-flex justify-content-center align-items-center text-center h-0 p-0" [class.hide-welcome]="isKeyboardShow" id="welcome">
+    <ion-text color="dark"
+      ><ion-text color="medium" class="welcome-to">{{'LOGIN.welcome' | translate}}</ion-text>
+      <br />
+      <b class="d-inline-block">Cloud Library</b>
+      <b class="d-inline-block ml-2"> Information Center </b></ion-text
+    >
+  </h2>
+  <ion-row [class.mt-n5]="isKeyboardShow">
+    <ion-col size="12" size-md="8" offset-md="2" size-lg="6" offset-lg="3">
+      <div class="col-8 col-sm-6 mx-auto">
+        <app-language-chooser></app-language-chooser>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="mt-1">
+        <ion-grid>
+          <ion-item>
+            <ion-col size="11">
+              <ion-input
+                formControlName="username"
+                class="text-center"
+                autocomplete="username"
+                name="username"
+                [placeholder]="'LOGIN.username'| translate"
+                (keyup.enter)="onLogin()"
+                color="dark"
+                (ionFocus)="showKeyBoard()"
+                (ionBlur)="hideKeyBoard()"
+              >
+              </ion-input>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-item>
+
+          <ion-item>
+            <ion-col size="11">
+              <ion-input
+                formControlName="password"
+                class="text-center hide-password"
+                [type]="checkPass?'password':'text'"
+                name="password"
+                autocomplete="password"
+                [placeholder]="'LOGIN.password'| translate"
+                (keyup.enter)="onLogin()"
+                color="dark"
+                (ionFocus)="showKeyBoard()"
+                (ionBlur)="hideKeyBoard()"
+              >
+              </ion-input>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon class="eye-icon" [name]="checkPass?'eye-outline':'eye-off-outline'" (click)="checkPass=!checkPass" class="eye-icon">
+              </ion-icon>
+            </ion-col>
+          </ion-item>
+        </ion-grid>
+
+        <div class="ion-padding text-center d-flex flex-column align-items-center">
+          <ion-button mode="ios" color="dark" fill="outline" class="w-50" (click)="onLogin()"
+            ><b class="py-1">{{ 'LOGIN.login'| translate}}</b></ion-button
+          >
+          <ion-text color="dark" (click)="openForgotPasswordModal()">{{'LOGIN.forgot_password' | translate}}</ion-text>
+        </div>
+      </form>
+    </ion-col>
+  </ion-row>
+  <p class="version">Version:2.10.1</p>
+</ion-content>

@@ -1,0 +1,152 @@
+### Test API inside Visual Studio Code ###
+@API_URL = http://192.168.9.64:8000/api/
+@token = {{loginRequest.response.body.token}}
+
+### Login to get token
+
+# @name loginRequest
+POST {{API_URL}}auth/login/
+content-type: application/json
+
+{
+    "username": "s04",
+    "password": "123123",
+    "device": "mobile"
+}
+
+### Logout
+
+POST {{API_URL}}auth/logout/
+content-type: application/json
+
+{
+    "token": "{{token}}"
+}
+###
+
+GET  {{API_URL}}media/
+Authorization: token {{token}}
+###
+
+GET  {{API_URL}}media/subscriber/
+Authorization: token {{token}}
+
+###
+
+GET   {{API_URL}}media/119/
+Authorization: token {{token}}
+### 
+GET  {{API_URL}}learning_material/get/18/
+Authorization: token {{token}}
+
+### List all medias
+
+POST  {{API_URL}}learning_material/2/download/
+Authorization: token {{token}}
+### download material
+
+POST  {{API_URL}}learning_material/60/return/
+Authorization: token {{token}}
+### delete materials
+
+GET  {{API_URL}}learning_material/category/2/?media_type=book&name=
+Authorization: token {{token}}
+
+### Media 21
+
+GET {{API_URL}}learning_material/downloaded/
+Authorization: token {{token}}
+
+
+
+### Instance of media
+
+GET  {{API_URL}}media/subscriber/
+Authorization: token {{token}}
+
+### Get Favorites
+
+GET  {{API_URL}}media/favorite/
+Authorization: token {{token}}
+
+### Get Favorites By media_type
+
+GET  {{API_URL}}media/favorite/?media_type=book
+Authorization: token {{token}}
+
+
+### Add Favorite
+
+POST  {{API_URL}}media/71/favorite/
+Authorization: token {{token}}
+
+### Delete Favorite
+
+DELETE {{API_URL}}media/21/favorite/
+Authorization: token {{token}}
+
+### Get school history
+
+GET   {{API_URL}}school_history/
+Authorization: token {{token}}
+
+### Get school new board
+
+GET   {{API_URL}}school_news_board/?page=2
+Authorization: token {{token}}
+
+
+### Get Student Content
+
+GET   {{API_URL}}student_content/
+Authorization: token {{token}}
+
+
+###
+
+POST  {{API_URL}}auth/logout/
+content-type: application/json
+Authorization: token {{token}}
+
+### List all downloaded notes
+
+GET  {{API_URL}}teacher_notes/downloaded/
+content-type: application/json
+Authorization: token {{token}}
+
+
+### Download Teacher note
+POST {{API_URL}}teacher_notes/12/download/
+content-type: application/json
+Authorization: token {{token}}
+
+{
+"url": "https://click.nng.bz/public/teacher_notes/12/Note-Click.txt"
+}
+
+### Remove Teacher note
+POST {{API_URL}}teacher_notes/12/return/
+content-type: application/json
+Authorization: token {{token}}
+
+{
+"url": "https://click.nng.bz/public/teacher_notes/12/Note-Click.txt"
+}
+
+###
+
+PATCH  {{API_URL}}users/change-password/
+content-type: application/json
+Authorization: token {{token}}
+
+{
+    "password": "123123",
+    "newPassword": "abcabc",
+    "confirmPassword": "abcabc"
+}
+
+
+### Get
+GET {{API_URL}}learning_material/category/1/?media_type=book&name=
+content-type: application/json
+Authorization: token 3027eab967271227c0fc74e752cfda3a2e319af7

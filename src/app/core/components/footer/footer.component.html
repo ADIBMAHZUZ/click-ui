@@ -1,0 +1,42 @@
+<ion-tabs *ngIf="isShowFooter && navigationEndUrl$ | async as afterRedirectUrl">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button>
+      <ion-icon
+        name="home-outline"
+        color="dark"
+        class="px-3 py-2"
+        [class.selected]="afterRedirectUrl.endsWith('/home') || afterRedirectUrl.endsWith('/home/')"
+        (click)="goTo('/home')"
+      ></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon
+        src="assets/icons/navbar/library.svg"
+        color="dark"
+        class="px-3 py-2"
+        style="zoom: 1.4"
+        [class.selected]="afterRedirectUrl.includes('/home/library')"
+        (click)="goTo('/home/library')"
+      ></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon
+        src="assets/icons/navbar/media.svg"
+        color="dark"
+        class="px-3 py-2"
+        [class.selected]="afterRedirectUrl.includes('/media')"
+        (click)="goTo('/media')"
+      ></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon
+        name="person-circle-outline"
+        color="dark"
+        style="zoom: 1.2"
+        class="px-3 py-2"
+        [class.selected]="afterRedirectUrl.includes('/profile') || afterRedirectUrl.includes('/dashboard')"
+        (click)="goTo('/profile')"
+      ></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

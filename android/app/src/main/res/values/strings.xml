@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CLICk</string>
+    <string name="title_activity_main">CLICk</string>
+    <string name="package_name">bz.nng.click</string>
+    <string name="custom_url_scheme">bz.nng.click</string>
+</resources>

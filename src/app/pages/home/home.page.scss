@@ -1,0 +1,147 @@
+:host {
+  .ion-color-dark {
+    --ion-color-dark: #d1d0d0;
+  }
+}
+
+ion-content {
+  background-size: cover !important;
+}
+ion-col.section {
+  // --background-overlay-left: rgba(255, 255, 255, 0.5);
+  // --background-overlay-right: rgba(255, 255, 255, 0.8);
+
+  --background-overlay-left: rgba(0, 0, 0, 0.5);
+  --background-overlay-right: rgba(0, 0, 0, 0.8);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (min-width: 480px) {
+  ion-col {
+    height: 26vh;
+    .badge {
+      width: 8vw;
+      --badge-height: 18.75vh;
+      height: 18.75vh;
+    }
+  }
+}
+.badge {
+  position: absolute;
+  top: 0;
+  left: 5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom-left-radius: calc(var(--badge-height) / 2);
+  border-bottom-right-radius: calc(var(--badge-height) / 2);
+
+  ion-icon {
+    width: calc(var(--badge-height) * 0.4);
+    height: calc(var(--badge-height) * 0.4);
+  }
+}
+h3 {
+  width: 85%;
+  margin-top: 1.75rem;
+  margin-left: 1rem;
+}
+#library {
+  @apply gradient;
+  --background-image: url('/assets/images/home/home-school-news.jpg');
+
+  background-image: linear-gradient(to right, var(--background-overlay-left), var(--background-overlay-right)), var(--background-image) !important;
+
+  .badge {
+    --badge-color: rgba(94, 0, 58, 0.8);
+    --icon-color: white;
+    background-color: var(--badge-color);
+    color: var(--icon-color);
+  }
+}
+#school-news {
+  @apply gradient;
+  --background-image: url('/assets/images/home/home-school-news.jpg');
+
+  background-image: linear-gradient(to right, var(--background-overlay-left), var(--background-overlay-right)), var(--background-image) !important;
+
+  .badge {
+    --badge-color: rgba(150, 0, 92, 0.8);
+    --icon-color: white;
+    background-color: var(--badge-color);
+    color: var(--icon-color);
+  }
+}
+#teacher-notes {
+  @apply gradient;
+  --background-image: url('/assets/images/home/home-school-news.jpg');
+
+  background-image: linear-gradient(to right, var(--background-overlay-left), var(--background-overlay-right)), var(--background-image) !important;
+
+  .badge {
+    --badge-color: rgba(163, 3, 3, 0.8);
+    --icon-color: white;
+    background-color: var(--badge-color);
+    color: var(--icon-color);
+  }
+}
+#material {
+  @apply gradient;
+  --background-image: url('/assets/images/home/home-school-news.jpg');
+
+  background-image: linear-gradient(to right, var(--background-overlay-left), var(--background-overlay-right)), var(--background-image) !important;
+
+  .badge {
+    --badge-color: rgba(248, 18, 10, 0.8);
+    --icon-color: white;
+    background-color: var(--badge-color);
+    color: var(--icon-color);
+  }
+}
+#school-history {
+  @apply gradient;
+  --background-image: url('/assets/images/home/home-school-news.jpg');
+
+  background-image: linear-gradient(to right, var(--background-overlay-left), var(--background-overlay-right)), var(--background-image) !important;
+
+  .badge {
+    --badge-color: rgb(255, 174, 0);
+    --icon-color: black;
+    background-color: var(--badge-color);
+    color: var(--icon-color);
+  }
+}
+#student-content {
+  @apply gradient;
+  --background-image: url('/assets/images/home/home-school-news.jpg');
+
+  background-image: linear-gradient(to right, var(--background-overlay-left), var(--background-overlay-right)), var(--background-image) !important;
+
+  .badge {
+    --badge-color: rgb(252, 215, 96);
+    --icon-color: black;
+    background-color: var(--badge-color);
+    color: var(--icon-color);
+  }
+}
+
+// For mobile:
+@media (max-width: 480px) {
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+  ion-col {
+    height: calc((100vh - 3.5rem) / 6);
+    .badge {
+      width: 12vw;
+      --badge-height: calc((100vh - 3.5rem) / 6 * 0.8);
+      height: calc((100vh - 3.5rem) / 6 * 0.75);
+    }
+  }
+}

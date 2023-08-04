@@ -1,0 +1,60 @@
+{
+  "appId": "bz.nng.click",
+  "version": "0.0.1",
+  "author": "NNG Limited Company",
+  "appName": "CLICk",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {
+    "preferences": {
+      "orientation": "landscape",
+      "WKWebViewOnly": "true",
+      "deployment-target": "12.4",
+      "iosScheme": "httpsionic",
+      "KeyboardResizeMode": "ionic",
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "FadeSplashScreen": "true",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "Fullscreen": "true",
+      "loadUrlTimeoutValue": "700000",
+      "android-windowSoftInputMode": "adjustResize",
+      "launchShowDuration": "4000",
+      "launchAutoHide": "false",
+      "showSpinner": "false",
+      "splashImmersive": true
+    }
+  },
+  "plugins": {
+    "SplashScreen": {
+      "showSpinner": false,
+      "launchAutoHide": false,
+      "splashImmersive": true
+    },
+    "Keyboard": {
+      "resize": "none"
+    }
+  },
+  "server": {
+    "iosScheme": "ionic",
+    "androidScheme": "http",
+    "allowNavigation": ["http://*/*", "https://*/*", "tel:*", "sms:*", "mailto:*", "geo:*"]
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  },
+  "ios": {
+    "contentInset": "always",
+    "cordovaSwiftVersion": "4.2",
+    "minVersion": "12.4",
+    "cordovaLinkerFlags": ["-ObjC"],
+    "allowsLinkPreview": false
+  }
+}

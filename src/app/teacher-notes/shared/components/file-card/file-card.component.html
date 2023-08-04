@@ -1,0 +1,27 @@
+<div *ngIf="state$ | async as state" (click)="handleOpen(state)">
+  <div class="position-relative">
+    <ion-icon name="cloud-download-outline" class="p-1 color-success" *ngIf="!state.downloaded && state.item.type !== 'folder'"></ion-icon>
+    <ion-icon
+      name="close-outline"
+      class="p-1 mt-n2 color-danger"
+      *ngIf="state.downloaded && state.item.type !== 'folder'"
+      (click)="handleRemove($event, state.item.id)"
+    ></ion-icon>
+    <img
+      [src]="state.item.type | noteIconPath"
+      [class.blur]="!state.downloaded && state.item.type !== 'folder'"
+      [class.p-2]="state.item.type === 'folder'"
+    />
+  </div>
+  <ion-progress-bar
+    [class.opacity-0]="!state.downloading"
+    type="determinate"
+    [value]="state.downloading?.downloadedSize / state.downloading?.totalSize"
+    color="primary"
+  ></ion-progress-bar>
+  <ion-card-header class="px-2 py-2">
+    <ion-card-title class="truncate smaller text-left">
+      {{ state.item.name }}
+    </ion-card-title>
+  </ion-card-header>
+</div>

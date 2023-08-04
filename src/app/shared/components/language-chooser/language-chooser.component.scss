@@ -1,0 +1,17 @@
+ion-segment-button {
+  --indicator-height: 0;
+  --padding-top: 0.5rem;
+  --padding-bottom: 0.5rem;
+  min-height: 2.5rem;
+  color: var(--ion-color-dark);
+
+  &.segment-button-checked {
+    border: 1px solid var(--ion-color-dark);
+    border-radius: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  ion-segment-button {
+    font-size: 0.8rem;
+  }
+}

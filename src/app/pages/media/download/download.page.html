@@ -1,0 +1,53 @@
+<ion-content color="light">
+  <ion-list *ngIf="mediaStates as mediaStates">
+    <ion-list-header>
+      <h4><ion-text color="dark">{{'MEDIA.TITLES.library' | translate }}</ion-text></h4>
+    </ion-list-header>
+
+    <ng-container *ngIf="mediaStates?.length > 0; else noMediaStates">
+      <app-download-item *ngFor="let state of mediaStates" [downloadState]="state" type="MEDIA" (abort)="abort($event)"></app-download-item>
+    </ng-container>
+    <ng-template #noMediaStates>
+      <ion-item class="m-0 m-sm-2">
+        <ion-text color="dark">{{'MEDIA.DOWNLOAD.no_media_is_downloading' | translate }}</ion-text>
+      </ion-item>
+    </ng-template>
+  </ion-list>
+  <ion-list *ngIf="materialStates as materialStates">
+    <ion-list-header>
+      <h4><ion-text color="dark">{{'MEDIA.TITLES.learning' | translate }}</ion-text></h4>
+    </ion-list-header>
+
+    <ng-container *ngIf="materialStates?.length > 0; else noMaterialStates">
+      <app-download-item
+        *ngFor="let state of materialStates"
+        [downloadState]="state"
+        type="LEARNING_MATERIAL"
+        (abort)="abort($event)"
+      ></app-download-item>
+    </ng-container>
+    <ng-template #noMaterialStates>
+      <ion-item class="m-0 m-sm-2" *ngIf="materialStates.length === 0">
+        <ion-text color="dark">{{'MEDIA.DOWNLOAD.no_media_is_downloading' | translate }}</ion-text>
+      </ion-item>
+    </ng-template>
+  </ion-list>
+  <ion-list *ngIf="teacherNotesStates as teacherNotesStates">
+    <ion-list-header>
+      <h4><ion-text color="dark">{{'MEDIA.TITLES.teacher_notes' | translate }}</ion-text></h4>
+    </ion-list-header>
+    <ng-container *ngIf="teacherNotesStates?.length > 0; else noTeacherNotes">
+      <app-download-item
+        *ngFor="let state of teacherNotesStates"
+        [downloadState]="state"
+        type="TEACHER_NOTE"
+        (abort)="abort($event)"
+      ></app-download-item>
+    </ng-container>
+    <ng-template #noTeacherNotes>
+      <ion-item class="m-0 m-sm-2">
+        <ion-text color="dark">{{'MEDIA.DOWNLOAD.no_media_is_downloading' | translate }}</ion-text>
+      </ion-item>
+    </ng-template>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,12 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>
+      <ion-badge [color]="getBackgroundColor(action)">{{
+        action | uppercase
+      }}</ion-badge>
+    </ion-card-subtitle>
+    <ion-card-title> {{ mediaName }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>{{ date | date: 'M/d/y, h:mm a' }} </ion-card-content>
+</ion-card>

@@ -1,0 +1,19 @@
+<ion-content class="mt-1" color="light">
+  <app-header [title]="newDetail?.title"></app-header>
+  <ion-row>
+    <ion-col size="12" size-md="10" offset-md="1">
+      <ion-card class="shadow-none">
+        <ion-card-header class="pt-1 pt-sm-2">
+          <ion-card-title class="h6 mb-1 mb-sm-2"><ion-text color="dark">{{newDetail?.title}}</ion-text></ion-card-title>
+          <ion-card-subtitle class="mt-0 mt-sm-2">
+            {{newDetail?.publishDate | date:'M/d/y, h:mm a'}}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ng-container *ngIf="newDetail?.photo" class="mh-25 d-flex">
+          <img [src]="newDetail?.photo" [title]="newDetail?.title" class="img-cover w-100 h-auto" />
+        </ng-container>
+        <ion-card-content [innerHTML]="newDetail?.content"> </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

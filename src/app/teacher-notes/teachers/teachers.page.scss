@@ -1,0 +1,36 @@
+ion-card {
+  margin: 0.5rem;
+  width: calc(9 * var(--font-size));
+  height: calc(15 * var(--font-size));
+
+  img {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: calc(9 * var(--font-size));
+    height: calc(12 * var(--font-size));
+    object-fit: cover;
+  }
+
+  ion-card-title {
+    font-size: var(--font-size);
+  }
+}
+@media (max-width: 768px) {
+  ion-card {
+    margin: 0.5rem;
+    width: 8rem;
+    height: 13rem;
+
+    img {
+      border-radius: 2rem;
+      padding: 0.25rem;
+      width: 8rem;
+      height: 11rem;
+      object-fit: cover;
+    }
+
+    ion-card-title {
+      font-size: 0.8rem;
+    }
+  }
+}

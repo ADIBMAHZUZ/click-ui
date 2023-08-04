@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <access origin="*" />
+  
+  <feature name="Battery">
+    <param name="android-package" value="org.apache.cordova.batterystatus.BatteryListener"/>
+  </feature>
+
+  <feature name="DatePickerPlugin">
+    <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin"/>
+  </feature>
+
+  <feature name="File">
+    <param name="android-package" value="org.apache.cordova.file.FileUtils"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  <feature name="FileTransfer">
+    <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer"/>
+  </feature>
+
+  <feature name="Market">
+    <param name="android-package" value="com.xmartlabs.cordova.market.Market"/>
+  </feature>
+
+  <feature name="NativeStorage">
+    <param name="android-package" value="NativeStorage"/>
+  </feature>
+
+  <feature name="NavigationBar">
+    <param name="android-package" value="com.cranberrygame.cordova.plugin.navigationbar.NavigationBar"/>
+  </feature>
+
+  <feature name="NetworkStatus">
+    <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager"/>
+  </feature>
+
+  <feature name="CDVOrientation">
+    <param name="android-package" value="cordova.plugins.screenorientation.CDVOrientation"/>
+  </feature>
+
+  <feature name="StatusBar">
+    <param name="android-package" value="org.apache.cordova.statusbar.StatusBar"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  <feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device"/>
+  </feature>
+
+  <feature name="Whitelist">
+    <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  
+  <preference name="orientation" value="landscape" />
+  <preference name="WKWebViewOnly" value="true" />
+  <preference name="deployment-target" value="12.4" />
+  <preference name="iosScheme" value="httpsionic" />
+  <preference name="KeyboardResizeMode" value="ionic" />
+  <preference name="ScrollEnabled" value="false" />
+  <preference name="android-minSdkVersion" value="19" />
+  <preference name="BackupWebStorage" value="none" />
+  <preference name="SplashMaintainAspectRatio" value="true" />
+  <preference name="FadeSplashScreenDuration" value="300" />
+  <preference name="FadeSplashScreen" value="true" />
+  <preference name="SplashShowOnlyFirstTime" value="false" />
+  <preference name="SplashScreen" value="screen" />
+  <preference name="Fullscreen" value="true" />
+  <preference name="loadUrlTimeoutValue" value="700000" />
+  <preference name="android-windowSoftInputMode" value="adjustResize" />
+  <preference name="launchShowDuration" value="4000" />
+  <preference name="launchAutoHide" value="false" />
+  <preference name="showSpinner" value="false" />
+  <preference name="splashImmersive" value="true" />
+</widget>

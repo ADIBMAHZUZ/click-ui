@@ -1,0 +1,141 @@
+<ion-content class="no-scroll">
+  <ion-grid
+    class="h-100 d-flex justify-content-center align-items-center p-1 p-sm-5"
+  >
+    <ion-row class="w-100">
+      <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2">
+        <h5 class="text-center">
+          <ion-text color="dark">
+            {{
+              'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.create_new_password'
+                | translate
+            }}
+          </ion-text>
+        </h5>
+        <form
+          class="login-form mt-2"
+          [formGroup]="form"
+          (ngSubmit)="createNewPassword()"
+        >
+          <ion-item>
+            <ion-label position="floating">
+              <ion-text>
+                {{
+                  'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.new_password'
+                    | translate
+                }}
+              </ion-text>
+              <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input
+              formControlName="new_password"
+              required
+              type="password"
+              clearOnEdit="false"
+              clearInput="true"
+              (click)="clearResponse()"
+              (keyup.enter)="createNewPassword()"
+            >
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">
+              <ion-text>
+                {{
+                  'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.confirm_new_password'
+                    | translate
+                }}
+              </ion-text>
+              <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input
+              formControlName="confirm_password"
+              required
+              type="password"
+              clearOnEdit="false"
+              clearInput="true"
+              (click)="clearResponse()"
+              (keyup.enter)="createNewPassword()"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-item
+            *ngIf="
+              (!form.controls.new_password.valid &&
+                form.controls.new_password.dirty) ||
+              (!form.controls.confirm_password.valid &&
+                form.controls.confirm_password.dirty) ||
+              (response && !response.success)
+            "
+            lines="none"
+          >
+            <ion-icon
+              title="Please enter a valid name."
+              color="danger"
+              name="alert-circle-outline"
+            >
+            </ion-icon>
+            <ion-text color="danger" class="ml-1">
+              <span *ngIf="form.controls.new_password.hasError('required')">
+                {{
+                  'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.please_enter_new_password'
+                    | translate
+                }}
+              </span>
+              <span *ngIf="form.controls.new_password.hasError('minlength')">
+                {{
+                  'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.password_6_characters_is_minimum_length_permitted'
+                    | translate
+                }}
+              </span>
+              <span *ngIf="form.controls.confirm_password.hasError('required')">
+                {{
+                  'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.please_enter_confirm_password'
+                    | translate
+                }}
+              </span>
+              <span
+                *ngIf="form.controls.confirm_password.hasError('minlength')"
+              >
+                {{
+                  'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.confirm_password_6_characters_is_minimum_length_permitted'
+                    | translate
+                }}
+              </span>
+              <span *ngIf="response && !response.success">{{
+                response?.error ? ('LOGIN.email_is_not_exist' | translate) : ''
+              }}</span>
+            </ion-text>
+          </ion-item>
+
+          <ion-buttons class="d-flex justify-content-center mt-3">
+            <ion-button
+              color="dark"
+              mode="ios"
+              fill="solid"
+              class="ion-no-margin"
+              (click)="createNewPassword()"
+            >
+              {{ 'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.submit' | translate }}
+              <ion-spinner
+                [class.d-none]="!isSendingRequest"
+                name="circles"
+                color="light"
+                class="ml-2"
+              ></ion-spinner>
+            </ion-button>
+            <ion-button
+              color="medium"
+              class="ion-no-margin"
+              slot="end"
+              (click)="dismissModal()"
+            >
+              {{ 'LOGIN.FORGOT_PASSWORD.CREATE_NEW_TOKEN.cancel' | translate }}
+            </ion-button>
+          </ion-buttons>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

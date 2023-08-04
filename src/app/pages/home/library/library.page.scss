@@ -1,0 +1,25 @@
+.tab-selected {
+  ion-icon {
+    fill: var(--ion-color-primary) !important;
+  }
+  ion-label {
+    color: var(--ion-color-primary) !important;
+  }
+}
+ion-tab-bar {
+  height: 4.2rem;
+}
+@media (max-width: 768px) {
+  ion-tab-bar {
+    height: 2.2rem;
+  }
+  ion-label {
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 1000px) and (min-width: 768px) {
+  ion-tab-bar {
+    height: 4rem;
+  }
+}

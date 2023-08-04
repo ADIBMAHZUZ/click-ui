@@ -1,0 +1,48 @@
+<ion-content>
+  <app-header [title]="getTitle()" [custom]="isCustomHeaderBack" (click)="back()"></app-header>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="4" id="large-image-wrapper" class="text-center justify-content-center">
+        <ion-thumbnail>
+          <img [src]="teacher?.results.teacher.url || 'assets/images/avatar.png'" />
+        </ion-thumbnail>
+        <h5 class="px-1 mx-auto truncate">{{teacher?.results.teacher.name}}</h5>
+      </ion-col>
+      <ion-col size="8" *ngIf="teacher">
+        <ion-content color="light">
+          <ion-row class="p-0 p-sm-2 justify-content-start">
+            <ion-card class="py-2" #item *ngFor="let note of teacher.results.notes.results">
+              <app-file-card
+                *ngIf="toBehaviorSubject(note) as subject"
+                [state$]="subject.asObservable()"
+                (open)="openNote(subject)"
+                (remove)="remove(subject)"
+              ></app-file-card>
+            </ion-card>
+          </ion-row>
+          <ion-infinite-scroll threshold="10%" (ionInfinite)="loadMore()">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" [loadingText]="'TEACHER_NOTES.loading_more_' | translate">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </ion-content>
+      </ion-col>
+
+      <ion-col size="8" *ngIf="!teacher">
+        <ion-content color="light">
+          <ion-row class="p-2 justify-content-start">
+            <ion-card class="py-2" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">
+              <img class="size-image" src="assets/icons/undefined-icon.svg" />
+              <ion-card-header class="px-2 py-2">
+                <ion-card-title class="truncate text-left">
+                  <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                </ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-row>
+        </ion-content>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

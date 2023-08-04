@@ -1,0 +1,10 @@
+ion-content {
+  max-height: 100vh;
+}
+button {
+  background-color: var(--ion-color-step-850);
+}
+ion-icon {
+  left: auto !important;
+  font-size: 1.75rem;
+}

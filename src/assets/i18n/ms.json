@@ -1,0 +1,383 @@
+{
+  "LOGIN": {
+    "lang": "Bahasa",
+    "welcome": "Selamat datang ke",
+    "username": "Nama pengguna",
+    "password": "Kata laluan",
+    "login": "Log masuk",
+    "forgot_password": "Lupa kata laluan",
+    "enter_your": "Masukkan anda",
+    "user_re": "Nama Pengguna Diperlukan",
+    "pass_re": "Kata laluan diperlukan",
+    "this_account_is_using_by": "Akaun ini digunakan oleh peranti lain.",
+    "email_is_not_exist": "E-mel atau nama pengguna tidak sah.",
+
+    "CLICk400": {
+      "header": "Akaun tidak sah",
+      "message": "Nama pengguna atau kata laluan yang salah, sila masukkan semula."
+    },
+    "CLICk401": {
+      "header": "Akaun tidak aktif",
+      "message": "Akaun tidak aktif"
+    },
+    "CLICk402": {
+      "header": "Log masuk ditolak!",
+      "message": "Akaun ini dilog masuk melebihi had maksimum peranti. Sila log keluar akaun anda di peranti lain, kemudian cuba lagi."
+    },
+    "CLICk403": {
+      "header": "Perpustakaan dikunci",
+      "message": "Perpustakaan anda terkunci buat sementara waktu."
+    },
+    "CLICk409": {
+      "header": "Log keluar gagal",
+      "message": "Sila cuba sebentar lagi."
+    },
+    "TOKEN_EXPIRED": {
+      "header": "Permintaan Masuk!",
+      "message": "Pustakawan anda baru sahaja mengemas kini had maksimum peranti. Cuba masuk lagi."
+    },
+    "no_internet": "Tiada sambungan internet, sila semak.",
+    "force_return_media": "Force Return Media",
+    "mentioned_books_has_expired": "Buku yang disebutkan telah tamat. Kami telah mengembalikannya.",
+
+    "FORGOT_PASSWORD": {
+      "FORGOT_PASSWORD_MODAL": {
+        "request_password_token": "Mohon Kata Laluan Token",
+        "username": "Nama pengguna",
+        "email": "E-mel",
+        "please_enter_username": "Sila masukkan nama pengguna",
+        "please_enter_a_email_address": "Sila masukkan alamat e-mel",
+        "_50_characters_is_maximum_permitted": "50 aksara adalah maksimum yang dibenarkan",
+        "please_enter_a_real_email": "Sila masukkan e-mel sebenar",
+        "send": "Hantar",
+        "cancel": "Batalkan"
+      },
+      "CHECK_TOKEN_MODAL": {
+        "confirm_email_token": "Sahkan Token E-mel",
+        "retrieve_password_token": "Token Kata Laluan Diperoleh",
+        "message": "Semak e-mel anda untuk mendapatkan token.",
+        "resend_message": "Tanda ini telah membenci! Sila semak e-mel anda.",
+        "resend": "Hantar semula",
+        "check": "Semak",
+        "cancel": "Batalkan"
+      },
+      "CREATE_NEW_TOKEN": {
+        "create_new_password": "Buat Kata Laluan Baru",
+        "new_password": "Kata Laluan Baru",
+        "please_enter_new_password": "Sila masukkan kata laluan baru",
+        "confirm_new_password": "Sahkan Kata Laluan Baru",
+        "please_enter_confirm_password": "Sila masukkan sahkan kata laluan",
+        "password_6_characters_is_minimum_length_permitted": "Kata laluan 6 huruf adalah panjang minimum yang dibenarkan.",
+        "confirm_password_6_characters_is_minimum_length_permitted": "Sahkan kata laluan 6 aksara adalah panjang minimum yang dibenarkan.",
+        "submit": "Mengemukakan",
+        "cancel": "Batalkan",
+        "ALERT": {
+          "title": "Tukar Kata Laluan",
+          "message": "Kata laluan anda telah berjaya diubah"
+        }
+      }
+    }
+  },
+  "NAVBAR": {
+    "home": "Rumah",
+    "logout": "Log keluar",
+    "search": "Mencari ...",
+    "hi": "Hi",
+    "school_virtual_resource_center": "Pusat Sumber Virtual Sekolah",
+    "ALERT": {
+      "logout": "Log keluar",
+      "ok": "OK",
+      "cancel": "Batalkan",
+      "message": "Adakah anda pasti anda mahu log keluar?"
+    }
+  },
+  "HOME": {
+    "library": "Buku Perpustakaan, Video & Muzik",
+    "school_news": "Lembaga Berita Sekolah",
+    "teacher_notes": "Nota Guru",
+    "material": "Bahan Pembelajaran",
+    "school_history": "Sejarah Sekolah",
+    "student_content": "Kandungan Pelajar",
+
+    "LIBRARY": {
+      "MEDIA": {
+        "book": "Buku",
+        "video": "Video",
+        "audio": "Audio"
+      },
+      "BOOK": {
+        "LIST": {
+          "see_all": "Lihat semua",
+          "search": "Carian ...",
+          "latest": "Paling akhir"
+        },
+        "DETAIL": {
+          "authors": "Pengarang (s):",
+          "size": "Saiz:",
+          "paperback": "Buku kecil:",
+          "publisher": "Penerbit:",
+          "language": "Bahasa:",
+          "category": "Kategori:",
+          "remaining_borrow_times": "Baki Masa Baki:",
+          "available_media": "Media yang tersedia:",
+          "preview": "Pratonton",
+          "view": "Lihat",
+          "listen": "Dengarkan",
+          "return": "Kembali",
+          "borrow": "Meminjam",
+          "downloading": "Memuat turun",
+          "extend": "Teruskan",
+          "reserve": "Rizab",
+          "reserved": "Terpelihara",
+          "time_remaining": "Masa yang tinggal:",
+          "days": "hari",
+          "hours": "Jam",
+          "minutes": "minit",
+          "product_description": "Penerangan Produk",
+          "no_any_preview_images": "Tiada gambar pratonton",
+          "continue_to_download": "Teruskan memuat turun",
+          "downloading_media_has": "Memuat turun Media telah mengambil untuk memuat turun ...",
+          "you_may_also_love_these_books": "Anda mungkin juga menyukai media ini",
+          "waiting_for_decryption": "Memuat ...",
+
+          "ALERTS": {
+            "DO_YOU_WANT_TO_RETURN_THIS": {
+              "do_you_want_to_return_this": "Adakah anda ingin memulangkan media ini?",
+              "ok": "Okey",
+              "cancel": "Batal"
+            },
+            "DO_YOU_WANT_TO_BORROW_THIS": {
+              "title": "Adakah anda mahu meminjam media ini?",
+              "message": "Pinjaman media anda tamat pada:"
+            },
+            "DO_YOU_WANT_TO_EXTEND_THIS": {
+              "title": "Adakah anda ingin meluaskan media ini?",
+              "message": "Pinjaman media anda tamat pada:"
+            },
+            "DO_YOU_WANT_TO_RESERVE_THIS": {
+              "title": "Adakah anda ingin menempah media ini?"
+            },
+            "RESERVE_INFORMATION": {
+              "title": "Simpan maklumat",
+              "message": "Keutamaan tempahan anda",
+              "message1": "Adakah anda ingin membatalkan tempahan ini?"
+            },
+            "your_media_is_returned_to": "Media anda dikembalikan.",
+            "you_reach_the_limit_of": "Anda mencapai had muat turun. Sila hubungi pustakawan untuk sokongan.",
+            "please_try_again_later": "sila cuba sebentar lagi",
+
+            "NO_INTERNET_CONNECTION": {
+              "title": "Tiada sambungan internet",
+              "message": "Sila periksa sambungan internet anda untuk meneroka buku ini."
+            },
+            "INVALID_BOOK": {
+              "title": "Buku tidak sah",
+              "message": "Maaf, buku ini belum dibaca. Sila periksa sambungan internet anda untuk mengemas kini perpustakaan terbaru."
+            },
+            "RETURN_BOOK": {
+              "title": "Memulangkan buku",
+              "message": "Media anda dikembalikan oleh peranti lain. Sila muat turun sekali lagi untuk digunakan."
+            },
+            "CHOOSE_DATE_FAILED": {
+              "choose_date_failed": "PILIH TARIKH GAGAL",
+              "please_choose_a_date_before": "Sila pilih tarikh sebelumnya",
+              "please_choose_a_date_after": "Sila pilih tarikh selepasnya",
+              "a_date_after_today": "Sila pilih tarikh selepas hari ini. Cuba lagi.",
+              "a_date_after_expiration_time": "Sila pilih tarikh selepas masa tamat semasa",
+              "please_borrow": "Tolong pinjam",
+              "please_extend": "Tolong panjangkan",
+              "days_at_most": "paling banyak hari."
+            },
+            "BORROW_SUCCESSFULLY": {
+              "borrow_successfully": "PINJAMAN BERJAYA",
+              "borrow_is_successfully__have": "Pinjam berjaya! Bersenang-senang dengan media anda."
+            },
+            "BORROW_FAILED": {
+              "borrow_failed": "PINJAMAN GAGAL",
+              "CLICk410": "Media tidak dijumpai",
+              "CLICk411": "Perpustakaan tidak mempunyai media ini",
+              "CLICk412": "Buku ini kehabisan stok",
+              "CLICk413": "Jangkau untuk menghadkan pinjaman",
+              "CLICk414": "Masa tamat tidak sah",
+              "CLICk415": "Anda telah meminjam media ini"
+            },
+            "PREVIEW_FAILED": {
+              "preview_failed": "Pratonton gagal",
+              "preview_is_not_available": "Pratonton tidak tersedia, sila cuba sebentar lagi."
+            },
+            "VIEW_FAILED": {
+              "view_failed": "Paparan gagal",
+              "view_is_not_available_please": "Paparan tidak tersedia, sila cuba sebentar lagi."
+            },
+            "EXTEND_SUCCESSFULLY": {
+              "extend_successfully_": "Lanjutkan dengan berjaya!",
+              "extend_is_successful__have": "Peluang berjaya! Bersenang-senang dengan media anda."
+            },
+            "EXTEND_FAILED": {
+              "extend_failed": "Sambungan gagal",
+              "extend_failed_please_try_again": "Sambungan gagal. Sila cuba lagi."
+            },
+            "RESERVE_SUCCESSFULLY": {
+              "title": "Rizab Berjaya"
+            },
+            "RESERVE_FAILED": {
+              "title": "Rizab gagal",
+              "message": "Rizab gagal. Sila cuba lagi."
+            },
+            "CANCEL_RESERVE_SUCCESSFULLY": {
+              "title": "Batal Berjaya",
+              "message": "Batalkan tempahan berjaya"
+            },
+            "CANCEL_RESERVE_FAILED": {
+              "title": "Batal Gagal",
+              "message": "Gagal membatalkan tempahan. Sila cuba lagi."
+            },
+            "BORROWING_TIMED_UP": {
+              "title": "Kembali secara automatik",
+              "message": "<br/>Masa peminjaman media anda melebihi. Ia dikembalikan secara automatik."
+            }
+          }
+        }
+      }
+    },
+    "SCHOOL_NEWS_BOARD": {
+      "read_more": "Baca Lagi",
+      "load_more": "Memuatkan lebih banyak data ..."
+    },
+    "STUDENT_CONTENT": {
+      "read_more": "Baca Lagi",
+      "load_more": "Memuatkan lebih banyak data ..."
+    }
+  },
+  "MEDIA": {
+    "TITLES": {
+      "download": "Muat turun",
+      "learning": "Bahan Pembelajaran",
+      "library": "Perpustakaan",
+      "teacher_notes": "Catatan Guru",
+      "wishlist": "Daftar Keinginan"
+    },
+    "DOWNLOAD": {
+      "on_progress": "Sedang berlangsung ...",
+      "no_media_is_downloading": "Tidak ada media yang memuat turun.",
+      "downloaded_media": "Media yang dimuat turun",
+      "cancel": "Batal"
+    },
+    "WISHLIST": {
+      "book": "Tempah",
+      "audio": "Audio",
+      "video": "Video",
+      "see_all": "Lihat semua"
+    }
+  },
+  "DASHBOARD": {
+    "hi": "Hai",
+    "dashboard": "Papan Pemuka",
+    "book": "Tempah",
+    "audio": "Audio",
+    "video": "Video",
+    "all": "Semua",
+    "account_information": "Maklumat Akaun",
+    "change_password": "Tukar kata laluan",
+    "activities": "Aktiviti",
+
+    "ACCOUNT_INFO": {
+      "username": "Nama pengguna",
+      "email": "E-mel",
+      "full_name": "Nama penuh",
+      "phone": "Telefon",
+      "address": "Alamat",
+      "birthday": "Hari Lahir",
+      "not_defined": "Tidak ditentukan"
+    },
+    "CHANGE_PASSWORD": {
+      "current_password": "Kata Laluan Semasa",
+      "new_password": "Kata laluan baharu",
+      "confirm_password": "Sahkan Kata Laluan",
+      "submit": "HANTAR",
+      "success": "Kejayaan",
+      "fail": "Gagal",
+      "change_password_success": "Tukar Kejayaan Kata Laluan!",
+      "log_out": "Log keluar",
+      "new_password_must_be_at_least": "Kata laluan baru mestilah sekurang-kurangnya 6 aksara",
+      "current_password_is_incorrect": "Kata laluan semasa adalah tidak betul",
+      "new_password_and_confirm": "Kata laluan baru dan kata laluan pengesahan tidak sepadan"
+    },
+    "ACTIVITIES": {
+      "category": "Kategori",
+      "type": "Jenis",
+      "from": "Dari",
+      "to": "Ke",
+      "date": "Tarikh",
+      "name_of_item": "Nama Media",
+      "activity": "Tindakan"
+    }
+  },
+
+  "MATERIAL": {
+    "DETAIL": {
+      "download": "Muat turun",
+      "delete": "Padam",
+      "librarian": "Pustakawan:",
+      "ALERTS": {
+        "DOWNLOAD_SUCCESSFULLY": {
+          "download_successfully": " BERJAYA",
+          "download_is_successfully__have": "Muat turun berjaya! Bersenang-senanglah dengan media anda."
+        },
+        "DOWNLOAD_FAIL": {
+          "download_fail": " FAIL",
+          "download_is_fail__have": "Muat turun gagal! Sila cuba lagi."
+        },
+        "DELETED_SUCCESSFULLY": {
+          "Delete_successfully": " BERJAYA",
+          "Delete_is_successfully__have": "Delete berjaya! Terima kasih."
+        },
+        "DO_YOU_WANT_TO_DELETE_THIS": {
+          "do_you_want_to_delete_this": "Adakah anda mahu memadamkan media ini?",
+          "ok": "Ok",
+          "cancel": "Batal"
+        }
+      }
+    }
+  },
+  "TEACHER_NOTES": {
+    "teachers": "Guru",
+    "loading_more_": "Loading more ...",
+    "DETAIL": {
+      "ALERTS": {
+        "THIS_NOTE_IS_NOT_VALID_IT_WAS": {
+          "title": "Nota tidak sah",
+          "message": "Catatan ini tidak sah. Ia dikembalikan secara automatik."
+        },
+        "NOTE_TYPE_IS_NOT_SUPPORTED": {
+          "title": "Jenis tidak disokong",
+          "message": "Jenis nota tidak disokong"
+        },
+        "DOWNLOADED_SUCCESSFULLY": {
+          "title": "Berjaya dimuat turun",
+          "message": "Berjaya dimuat turun"
+        },
+        "DOWNLOADED_FAILED": {
+          "title": "Muat turun gagal",
+          "message": "Muat turun gagal"
+        },
+        "REMOVE_SUCCESSFULLY": {
+          "title": "Buang berjaya",
+          "message": "Berjaya mengeluarkan nota"
+        }
+      }
+    }
+  },
+  "BETA": {
+    "header": "Ops!",
+    "message": "Anda tidak dapat mengakses kandungan ini dalam versi Beta sekarang. Tidak lama lagi."
+  },
+  "APP": {
+    "ALERTS": {
+      "PLUG_ALERT": {
+        "title": "Amaran!",
+        "message": "Atas sebab keselamatan, jangan gunakan tablet anda semasa mengecas."
+      }
+    }
+  }
+}

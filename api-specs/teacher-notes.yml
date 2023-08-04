@@ -1,0 +1,113 @@
+swagger: '2.0'
+info:
+  description: 'Teacher notes'
+  version: '1.0.0'
+  title: 'CLICk - Teacher notes'
+  termsOfService: 'http://swagger.io/terms/'
+
+paths:
+  /teachers/:id/:
+    post:
+      description: Returns all teacher notes from a teacher.
+      produces:
+        - application/json
+      parameters:
+        - name: q
+          in: query
+          description: query by note name (if blank, return all)
+          type: string
+        - name: page
+          in: query
+          description: query by page (if blank, return with page=1)
+          type: string
+        - name: folder_id
+          in: query
+          description: folder id  (if blank, return with root folder of teacher [:id])
+          type: string
+      responses:
+        '200':
+          description: Pagination of notes.
+          schema:
+            $ref: '#/definitions/TeacherDetail'
+
+definitions:
+  Teacher:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      preview_url:
+        type: string
+      url:
+        type: string
+  TeacherNoteDetail:
+    type: object
+    properties:
+      id:
+        type: string
+      size:
+        type: number
+      name:
+        type: string
+      file_type:
+        type: string
+      url:
+        type: string
+      created_date:
+        type: string
+  TeacherNoteDetailFull:
+    type: object
+    properties:
+      size:
+        type: number
+      name:
+        type: string
+      type:
+        type: string
+      url:
+        type: string
+      created_date:
+        type: string
+      teacher:
+        $ref: '#/definitions/Teacher'
+
+  TeacherDetail:
+    type: object
+    properties:
+      results:
+        type: object
+        properties:
+          teacher:
+            $ref: '#/definitions/Teacher'
+          notes:
+            $ref: '#/definitions/PagingTeacherNotes'
+
+  PagingTeacherNotes:
+    type: object
+    properties:
+      count:
+        type: number
+      next:
+        type: string
+      previous:
+        type: string
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/TeacherNoteDetail'
+
+  PagingTeachers:
+    type: object
+    properties:
+      count:
+        type: number
+      next:
+        type: string
+      previous:
+        type: string
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/Teacher'

@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS Accounts(user_id INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT,password TEXT,token TEXT);
+INSERT or IGNORE INTO Accounts VALUES (1, 'Paresh', 'X', '550');

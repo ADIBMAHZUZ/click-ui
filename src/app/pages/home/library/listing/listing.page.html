@@ -1,0 +1,23 @@
+<ion-content *ngIf="categoriesVM; else loading" color="light">
+  <app-category-listing
+    [title]="'HOME.LIBRARY.BOOK.LIST.latest' | translate"
+    [items]="categoriesVM.lastest"
+    (clickItem)="navigateTo(['detail',$event])"
+    enableSeeAll="false"
+  >
+  </app-category-listing>
+  <app-category-listing
+    *ngFor="let categoryWrapper of categoriesVM.categories; let i=index;"
+    [title]="categoryWrapper.category.name"
+    (clickTitle)="navigateTo(['see-all',categoryWrapper.category.id])"
+    [items]="categoryWrapper.media"
+    (clickItem)="navigateTo(['detail',$event])"
+  >
+  </app-category-listing>
+</ion-content>
+
+<ng-template #loading>
+  <ion-content color="light">
+    <app-category-listing-skeleton *ngFor="let c of [1, 2, 3, 4, 5, 6]"></app-category-listing-skeleton>
+  </ion-content>
+</ng-template>

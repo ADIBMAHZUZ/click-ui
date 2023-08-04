@@ -1,0 +1,28 @@
+{
+  "appId": "com.yourdoamnin.yourapp",
+  "directories": {
+    "buildResources": "resources"
+  },
+  "productName": "Click",
+  "files": ["assets/**/*", "build/**/*", "capacitor.config.*", "app/**/*"],
+  "nsis": {
+    "allowElevation": true,
+    "oneClick": false,
+    "createDesktopShortcut": true,
+    "perMachine": true,
+    "allowToChangeInstallationDirectory": true
+  },
+  "win": {
+    "target": ["nsis"],
+    "icon": "assets/click.png"
+  },
+  "mac": {
+    "category": "your.app.category.type",
+    "target": ["dmg"],
+    "icon": "assets/click.icns"
+  },
+  "dmg": {
+    "title": "Click",
+    "icon": "assets/click.icns"
+  }
+}

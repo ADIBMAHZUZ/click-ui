@@ -1,0 +1,92 @@
+<ion-content class="no-scroll">
+  <ion-grid
+    class="h-100 d-flex justify-content-center align-items-center p-1 p-sm-5"
+  >
+    <ion-row class="w-100">
+      <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2">
+        <h5 class="text-center">
+          <ion-text color="dark">
+            {{
+              'LOGIN.FORGOT_PASSWORD.CHECK_TOKEN_MODAL.confirm_email_token'
+                | translate
+            }}
+          </ion-text>
+        </h5>
+        <form
+          class="login-form mt-2"
+          [formGroup]="form"
+          (ngSubmit)="checkForgotPasswordToken()"
+          (keyup.enter)="checkForgotPasswordToken()"
+        >
+          <ion-item>
+            {{ message | translate }}
+            <ion-label position="floating">
+              <ion-text>
+                {{
+                  'LOGIN.FORGOT_PASSWORD.CHECK_TOKEN_MODAL.retrieve_password_token'
+                    | translate
+                }}
+              </ion-text>
+              <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input
+              formControlName="token"
+              required
+              type="text"
+              autocapitalize="characters"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="response && !response.success">
+            <ion-icon
+              title="Please check again."
+              color="danger"
+              name="alert-circle-outline"
+            >
+            </ion-icon>
+
+            <ion-text color="danger" class="ml-1">
+              {{
+                response?.error ? ('LOGIN.email_is_not_exist' | translate) : ''
+              }}
+            </ion-text>
+          </ion-item>
+          <ion-buttons class="d-flex justify-content-center mt-3">
+            <ion-button
+              fill="outline"
+              mode="ios"
+              color="dark"
+              (click)="forgotPassword()"
+            >
+              {{ 'LOGIN.FORGOT_PASSWORD.CHECK_TOKEN_MODAL.resend' | translate }}
+            </ion-button>
+
+            <ion-button
+              color="dark"
+              fill="solid"
+              mode="ios"
+              class="ion-no-margin"
+              (click)="checkForgotPasswordToken()"
+            >
+              {{ 'LOGIN.FORGOT_PASSWORD.CHECK_TOKEN_MODAL.check' | translate }}
+              <ion-spinner
+                [class.d-none]="!isSendingRequest"
+                name="circles"
+                color="light"
+                class="ml-2"
+              ></ion-spinner>
+            </ion-button>
+            <ion-button
+              color="medium"
+              class="ion-no-margin"
+              slot="end"
+              (click)="dismissModal()"
+            >
+              {{ 'LOGIN.FORGOT_PASSWORD.CHECK_TOKEN_MODAL.cancel' | translate }}
+            </ion-button>
+          </ion-buttons>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

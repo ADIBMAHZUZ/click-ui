@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true" *ngIf="accountInfo$ | async as info" color="light">
+  <app-header [title]="'DASHBOARD.account_information' | translate" [isShowBackButton]="false"> </app-header>
+  <div class="row mt-3">
+    <div class="col-12 col-md-4">
+      <ion-avatar class="img-wrapper">
+        <img [src]="info?.logo || 'assets/images/avatar.png'" />
+      </ion-avatar>
+    </div>
+    <ion-list class="col-12 col-md-6">
+      <ion-item color="light">
+        <h6>{{ 'DASHBOARD.ACCOUNT_INFO.username' | translate }}</h6>
+        <ion-label class="text-right truncate">{{ info?.username }}</ion-label>
+      </ion-item>
+      <ion-item color="light">
+        <h6>{{ 'DASHBOARD.ACCOUNT_INFO.email' | translate }}</h6>
+        <ion-label class="text-right truncate">{{ info?.email || 'DASHBOARD.ACCOUNT_INFO.not_defined' | translate }}</ion-label>
+      </ion-item>
+      <ion-item color="light">
+        <h6>{{ 'DASHBOARD.ACCOUNT_INFO.full_name' | translate }}</h6>
+        <ion-label class="text-right truncate">{{ info?.name || 'DASHBOARD.ACCOUNT_INFO.not_defined' | translate }}</ion-label>
+      </ion-item>
+      <ion-item color="light">
+        <h6>{{ 'DASHBOARD.ACCOUNT_INFO.phone' | translate }}</h6>
+        <ion-label class="text-right truncate">{{ info?.phone || 'DASHBOARD.ACCOUNT_INFO.not_defined' | translate }}</ion-label>
+      </ion-item>
+      <ion-item color="light">
+        <h6>{{ 'DASHBOARD.ACCOUNT_INFO.address' | translate }}</h6>
+        <ion-label class="text-right truncate text-wrap">{{ info?.address || 'DASHBOARD.ACCOUNT_INFO.not_defined' | translate }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

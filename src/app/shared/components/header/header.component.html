@@ -1,0 +1,18 @@
+<div color="light custom-border">
+  <ion-toolbar [class.pl-4]="!isShowBackButton" color="light" class="flex items-center">
+    <ion-buttons slot="start" *ngIf="isShowBackButton">
+      <ion-icon
+        (click)="handleBack()"
+        *ngIf="custom"
+        class="custom-icon ml-2 mr-3"
+        name="arrow-back-sharp"
+        size="md-arrow-back-outline"
+        color="dark"
+      ></ion-icon>
+      <ion-back-button defaultHref="home" *ngIf="!custom"></ion-back-button>
+    </ion-buttons>
+    <h5 [class.custom-title]="custom">
+      <span class="truncate" color="dark">{{ title }}</span>
+    </h5>
+  </ion-toolbar>
+</div>

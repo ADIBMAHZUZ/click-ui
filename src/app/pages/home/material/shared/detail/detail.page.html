@@ -1,0 +1,181 @@
+<ng-container *ngIf="materialStateSubject?.value as materialState">
+  <ion-content color="light">
+    <app-header [title]="materialState.item?.name" class="d-none d-sm-block"></app-header>
+    <header class="d-flex w-100 overflow-hidden position-relative d-sm-none">
+      <img class="background-image" [src]="selectedImageUrl" />
+      <ion-icon (click)="goBack()" class="ml-1 mr-2 p-1 rounded-circle" name="arrow-back-outline" size="md-arrow-back-outline"></ion-icon>
+      <ion-slides class="m-1">
+        <ion-slide *ngFor="let image of materialState?.item?.images">
+          <img [src]="image.image" />
+        </ion-slide>
+      </ion-slides>
+    </header>
+    <ion-grid>
+      <div class="mx-2 mx-sm-4 py-2 row">
+        <div class="left-container d-inline col-3 col-sm-5">
+          <div class="row mx-0">
+            <div class="col-12 col-sm-9 px-0">
+              <ion-thumbnail id="large-image-wrapper">
+                <img [src]="selectedImageUrl" />
+              </ion-thumbnail>
+            </div>
+            <div class="d-none d-sm-block col-sm-3">
+              <ion-list>
+                <ion-content #ionContentList color="light">
+                  <ion-item *ngIf="materialState.item?.images?.length === 0">
+                    <ion-thumbnail>
+                      <ion-text class="ion-text-wrap">
+                        {{'HOME.LIBRARY.BOOK.DETAIL.no_any_preview_images' | translate}}
+                      </ion-text>
+                    </ion-thumbnail>
+                  </ion-item>
+                  <ion-item *ngFor="let image of materialState.item?.images">
+                    <ion-thumbnail>
+                      <img [src]="image.image" (click)="setSelectedImageUrl(image.image)" />
+                    </ion-thumbnail>
+                  </ion-item>
+                </ion-content>
+              </ion-list>
+              <ion-item lines="none" button class="d-none d-sm-block">
+                <ion-icon name="chevron-down-circle-outline" class="mx-auto" button (click)="scrollDown()"></ion-icon>
+              </ion-item>
+            </div>
+          </div>
+        </div>
+        <div class="right-container pl-3 col-9 col-sm-7">
+          <h5 class="truncate mb-2 mb-sm-4 mt-1 mt-sm-3">
+            <b>{{materialState.item?.name}}</b>
+          </h5>
+          <div class="mb-2 mb-sm-4">
+            <article class="my-2">
+              <div class="mt-0 mt-sm-1" *ngIf="materialState.item?.author">
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.authors' | translate}}</b>
+                {{materialState.item?.author}}
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="materialState.item?.fileSize">
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.size' | translate}}</b>
+                {{materialState.item?.fileSize}} MB
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="materialState.item?.library">
+                <b>{{'MATERIAL.DETAIL.librarian' | translate}}</b>
+                {{materialState.item.library.name}}
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="materialState.item?.category">
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.category' | translate}}</b>
+                {{materialState.item.category.name}}
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="materialState.item?.isbn">
+                <b>ISBN:</b>
+                {{materialState.item.isbn}}
+              </div>
+            </article>
+          </div>
+
+          <div class="mb-1" class="d-flex">
+            <ion-button shape="round" color="dark" fill="outline" class="w-50" [class.d-none]="!materialState.downloading"
+              >{{'HOME.LIBRARY.BOOK.DETAIL.downloading' | translate}}
+              <ion-text> ({{getDownloadingPercentage() | percent:'2.2-2'}})</ion-text></ion-button
+            >
+            <ion-button
+              shape="round"
+              color="dark"
+              fill="outline"
+              (click)="download(materialStateSubject)"
+              [class.d-none]="materialState.downloading || materialState.downloaded"
+              >{{'MATERIAL.DETAIL.download' | translate}}</ion-button
+            >
+            <ion-button shape="round" color="light" (click)="view()" [class.d-none]="!materialState.downloaded"
+              >{{'HOME.LIBRARY.BOOK.DETAIL.view' | translate}}</ion-button
+            >
+            <ion-button shape="round" color="dark" fill="outline" (click)="remove(materialState)" [class.d-none]="!materialState.downloaded"
+              >{{'MATERIAL.DETAIL.delete' | translate}}</ion-button
+            >
+          </div>
+        </div>
+      </div>
+    </ion-grid>
+  </ion-content>
+</ng-container>
+<ion-content *ngIf="!materialStateSubject?.value">
+  <ion-grid>
+    <ion-row class="px-4 py-2">
+      <ion-col size="5" class="left-container d-inline">
+        <ion-row>
+          <ion-col size="9" class="">
+            <ion-item id="large-image-wrapper">
+              <ion-thumbnail>
+                <ion-skeleton-text animated style="width: 100%; height: 52vh;"></ion-skeleton-text>
+              </ion-thumbnail>
+            </ion-item>
+          </ion-col>
+          <ion-col size="3">
+            <ion-list>
+              <ion-content #ionContentList>
+                <ion-item *ngFor="let image of [0,1,2,3,4]">
+                  <ion-thumbnail>
+                    <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+                  </ion-thumbnail>
+                </ion-item>
+              </ion-content>
+            </ion-list>
+            <ion-item lines="none" button detail="false">
+              <ion-icon name="chevron-down-circle-outline" class="mx-auto" button (click)="scrollDown()"></ion-icon>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="7" class="right-container pl-3">
+        <ion-item>
+          <ion-skeleton-text animated style="width: 80%; height: calc(2.5 * var(--font-size));"></ion-skeleton-text>
+        </ion-item>
+        <ion-item>
+          <article class="my-2 w-50">
+            <p>
+              <ion-skeleton-text
+                animated
+                style="width: 40%; height: calc(1.5 * var(--font-size)); display: inline-block;"
+              ></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text
+                animated
+                style="width: 30%; height: calc(1.5 * var(--font-size)); display: inline-block;"
+              ></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text
+                animated
+                style="width: 60%; height: calc(1.5 * var(--font-size)); display: inline-block;"
+              ></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text
+                animated
+                style="width: 40%; height: calc(1.5 * var(--font-size)); display: inline-block;"
+              ></ion-skeleton-text>
+            </p>
+          </article>
+        </ion-item>
+        <ion-item lines="none" class="my-2">
+          <article class="my-2 w-50">
+            <p>
+              <ion-skeleton-text
+                animated
+                style="width: 70%; height: calc(1.5 * var(--font-size)); display: inline-block;"
+              ></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text
+                animated
+                style="width: 40%; height: calc(1.5 * var(--font-size)); display: inline-block;"
+              ></ion-skeleton-text>
+            </p>
+          </article>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-button shape="round" color="dark" fill="outline">{{'MATERIAL.DETAIL.download' | translate}}</ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

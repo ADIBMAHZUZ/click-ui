@@ -1,0 +1,26 @@
+#filters.hide-filters {
+  height: 0;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#filters {
+  opacity: 1;
+  height: 11rem;
+  transition: all 0.3s ease-in;
+}
+
+@media (max-width: 768px) {
+  ion-label,
+  ion-select,
+  ion-select-option {
+    font-size: 0.9rem !important;
+  }
+  ion-datetime,
+  ion-col,
+  ion-item {
+    font-size: 0.8rem !important;
+  }
+  ion-badge {
+    font-size: 0.6rem !important;
+  }
+}

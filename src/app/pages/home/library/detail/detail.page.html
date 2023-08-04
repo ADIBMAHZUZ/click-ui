@@ -1,0 +1,220 @@
+<ng-container *ngIf="mediaState$ | async as mediaState; else skeleton">
+  <ion-content color="light">
+    <app-header [title]="mediaState?.item?.name" class="d-none d-sm-block" (back)="goBack()" [custom]="true"></app-header>
+    <header class="d-flex w-100 overflow-hidden position-relative d-sm-none">
+      <img class="background-image" [src]="selectedImageUrl" />
+      <ion-icon (click)="goBack()" class="ml-1 mr-2 p-1 rounded-circle" name="arrow-back-outline" size="md-arrow-back-outline"></ion-icon>
+      <ion-slides class="m-1">
+        <ion-slide *ngFor="let image of mediaState?.item?.images">
+          <img [src]="image.image" />
+        </ion-slide>
+      </ion-slides>
+    </header>
+    <ion-grid>
+      <div class="mx-2 mx-sm-4 py-2 row">
+        <div class="left-container d-inline col-3 col-sm-5">
+          <div class="row mx-0">
+            <div class="col-12 col-sm-9 px-0">
+              <ion-thumbnail id="large-image-wrapper">
+                <img [src]="selectedImageUrl" />
+              </ion-thumbnail>
+              <div class="mt-2 d-flex align-items-center" lines="none">
+                <ion-icon [name]="mediaState?.item?.favorite ? 'heart' : 'heart-outline'" color="danger" (click)="toggleLiked()"></ion-icon>
+                <ion-label class="px-1">{{mediaState?.item?.numberOfFavorites}}</ion-label>
+              </div>
+            </div>
+            <div class="d-none d-sm-block col-sm-3">
+              <ion-list>
+                <ion-content color="light" #ionContentList color="light">
+                  <ion-item *ngIf="mediaState?.item?.images?.length === 0">
+                    <ion-thumbnail>
+                      <ion-text class="ion-text-wrap">
+                        {{'HOME.LIBRARY.BOOK.DETAIL.no_any_preview_images' | translate}}
+                      </ion-text>
+                    </ion-thumbnail>
+                  </ion-item>
+                  <ion-item *ngFor="let image of mediaState?.item?.images">
+                    <ion-thumbnail (click)="setSelectedImageUrl(image.image)">
+                      <img [src]="image.image" />
+                    </ion-thumbnail>
+                  </ion-item>
+                </ion-content>
+              </ion-list>
+              <ion-item lines="none" button class="d-none d-sm-block">
+                <ion-icon name="chevron-down-circle-outline" class="mx-auto" (click)="scrollDown()"></ion-icon>
+              </ion-item>
+            </div>
+          </div>
+        </div>
+        <div class="right-container pl-3 col-9 col-sm-7">
+          <h5 class="truncate mb-2 mb-sm-4 mt-1 mt-sm-3">
+            <b>{{mediaState?.item?.name}}</b>
+          </h5>
+          <div class="mb-2 mb-sm-4">
+            <article class="my-2">
+              <div class="mt-0 mt-sm-1" *ngIf="mediaState?.item?.author">
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.authors' | translate}}</b>
+                {{mediaState?.item?.author}}
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="mediaState?.item?.fileSize">
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.size' | translate}}</b>
+                {{mediaState?.item?.fileSize | number:''}} MB
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="mediaState?.item?.publisher">
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.publisher' | translate}}</b>
+                {{mediaState?.item?.publisher.name}}
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="mediaState?.item?.category">
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.category' | translate}}</b>
+                {{getCategoryNamesAsString(mediaState?.item?.category)}}
+              </div>
+              <div class="mt-0 mt-sm-1" *ngIf="mediaState?.item?.isbn">
+                <b>ISBN:</b>
+                {{mediaState?.item?.isbn}}
+              </div>
+            </article>
+          </div>
+          <div class="mb-2 mb-sm-4">
+            <article class="my-1 my-sm-2">
+              <div>
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.remaining_borrow_times' | translate}}</b>
+                {{mediaState?.item?.remainingBorrowTimes || 0}}
+              </div>
+              <div>
+                <b>{{'HOME.LIBRARY.BOOK.DETAIL.available_media' | translate}}</b>
+                {{mediaState?.item?.quantity || 0}}
+              </div>
+            </article>
+          </div>
+          <div class="mb-1" class="d-flex flex-wrap">
+            <ion-button shape="round" color="dark" fill="outline" (click)="preview(mediaState)" [class.d-none]="mediaState?.downloaded"
+              >{{'HOME.LIBRARY.BOOK.DETAIL.preview' | translate}}</ion-button
+            >
+            <ion-button shape="round" color="dark" fill="outline" class="w-50" [class.d-none]="!mediaState?.downloading"
+              >{{'HOME.LIBRARY.BOOK.DETAIL.downloading' | translate}}
+              <ion-text class="ml-1"> ({{mediaState.downloading | downloadingPercent | percent:'2.2-2'}})</ion-text></ion-button
+            >
+            <ion-button
+              shape="round"
+              color="light"
+              (click)="borrow(mediaState)"
+              [class.d-none]="!(!mediaState?.downloading && !mediaState?.downloaded && mediaState.item.quantity > 0) "
+              >{{'HOME.LIBRARY.BOOK.DETAIL.borrow' | translate}}</ion-button
+            >
+            <ion-button
+              shape="round"
+              color="light"
+              (click)="reserve(mediaState.item)"
+              [class.d-none]="!(!mediaState?.downloading && !mediaState?.downloaded && mediaState.item.quantity === 0) "
+            >
+              {{('HOME.LIBRARY.BOOK.DETAIL.' + (mediaState.item.reservedIndex > 0? 'reserved' : 'reserve')) | translate}}
+            </ion-button>
+            <ion-button shape="round" color="light" (click)="view(mediaState)" [class.d-none]="!mediaState?.downloaded"
+              >{{'HOME.LIBRARY.BOOK.DETAIL.view' | translate}}</ion-button
+            >
+            <ion-button shape="round" color="dark" fill="outline" (click)="return(mediaState)" [class.d-none]="!mediaState?.downloaded"
+              >{{'HOME.LIBRARY.BOOK.DETAIL.return' | translate}}</ion-button
+            >
+            <ion-button shape="round" color="light" (click)="extend(mediaState)" [class.d-none]="!mediaState?.downloaded"
+              >{{'HOME.LIBRARY.BOOK.DETAIL.extend' | translate}}</ion-button
+            >
+          </div>
+
+          <article *ngIf="(mediaState?.downloaded && expiredDate)">
+            <b>{{'HOME.LIBRARY.BOOK.DETAIL.time_remaining' | translate}} </b>
+            <article class="d-inline-block">
+              <strong class="px-1 h6 font-weight-bold">{{expiredDate?.days}} </strong>
+              {{'HOME.LIBRARY.BOOK.DETAIL.days' | translate}} /
+              <strong class="px-1 h6 font-weight-bold">{{expiredDate?.hours}} </strong>
+              {{'HOME.LIBRARY.BOOK.DETAIL.hours' | translate}} /
+              <strong class="px-1 h6 font-weight-bold">{{expiredDate?.minutes}} </strong>
+              {{'HOME.LIBRARY.BOOK.DETAIL.minutes' | translate}}.
+            </article>
+          </article>
+        </div>
+      </div>
+
+      <app-category-listing
+        title="{{'HOME.LIBRARY.BOOK.DETAIL.you_may_also_love_these_books' | translate}}"
+        [items]="(mediaRelatedVM$ | async)?.results"
+        (clickToNavigateWithMediaType)="back($event)"
+        [enableSeeAll]="false"
+      >
+      </app-category-listing>
+      <ion-item class="d-block d-sm-none"></ion-item>
+    </ion-grid>
+  </ion-content>
+</ng-container>
+
+<ng-template #skeleton>
+  <ion-content color="light">
+    <ion-grid>
+      <div class="px-4 py-2 row">
+        <div class="left-container d-inline col-5">
+          <div>
+            <div class="col-9">
+              <ion-item id="large-image-wrapper">
+                <ion-thumbnail>
+                  <ion-skeleton-text animated style="width: 100%; height: 52vh;"></ion-skeleton-text>
+                </ion-thumbnail>
+              </ion-item>
+              <ion-item class="mt-2" lines="none">
+                <ion-icon name="heart" color="danger"></ion-icon>
+              </ion-item>
+            </div>
+            <div class="col-3">
+              <ion-list>
+                <ion-content color="light" #ionContentList>
+                  <ion-item *ngFor="let image of [0,1,2,3,4]">
+                    <ion-thumbnail>
+                      <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                  </ion-item>
+                </ion-content>
+              </ion-list>
+              <ion-item lines="none" button detail="false">
+                <ion-icon name="chevron-down-circle-outline" class="mx-auto" button></ion-icon>
+              </ion-item>
+            </div>
+          </div>
+        </div>
+        <div class="right-container pl-3 col-7">
+          <ion-item>
+            <ion-skeleton-text animated style="width: 80%; height: 3rem;"></ion-skeleton-text>
+          </ion-item>
+          <ion-item>
+            <article class="my-2 w-50">
+              <p>
+                <ion-skeleton-text animated style="width: 40%; height: 1.5rem; display: inline-block;"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 30%; height: 1.5rem; display: inline-block;"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 60%; height: 1.5rem; display: inline-block;"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 40%; height: 1.5rem; display: inline-block;"></ion-skeleton-text>
+              </p>
+            </article>
+          </ion-item>
+          <ion-item lines="none" class="my-2">
+            <article class="my-2 w-50">
+              <p>
+                <ion-skeleton-text animated style="width: 70%; height: 1.5rem; display: inline-block;"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 40%; height: 1.5rem; display: inline-block;"></ion-skeleton-text>
+              </p>
+            </article>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-button shape="round" color="dark" fill="outline">{{'HOME.LIBRARY.BOOK.DETAIL.preview' | translate}}</ion-button>
+            <ion-button shape="round" color="light">{{'HOME.LIBRARY.BOOK.DETAIL.borrow' | translate}}</ion-button>
+          </ion-item>
+        </div>
+      </div>
+      <app-category-listing-skeleton></app-category-listing-skeleton>
+    </ion-grid>
+  </ion-content>
+</ng-template>

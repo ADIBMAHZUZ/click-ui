@@ -1,0 +1,18 @@
+<ion-content color="light">
+  <ion-tabs>
+    <ion-tab-bar color="light" slot="top" class="pt-sm-2" [class.d-none]="!(isTabbarVisible$ | async)">
+      <ion-tab-button tab="book">
+        <ion-icon class="d-none d-sm-inline-block h4 mb-1" name="layers" color="dark"></ion-icon>
+        <ion-label color="dark"> {{'HOME.LIBRARY.MEDIA.book' | translate}}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="audio">
+        <ion-icon class="d-none d-sm-inline-block h4 mb-1" name="musical-notes" color="dark"></ion-icon>
+        <ion-label color="dark">{{'HOME.LIBRARY.MEDIA.audio' | translate}}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="video">
+        <ion-icon class="d-none d-sm-inline-block h4 mb-1" name="play-circle" color="dark"></ion-icon>
+        <ion-label color="dark">{{'HOME.LIBRARY.MEDIA.video' | translate}}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

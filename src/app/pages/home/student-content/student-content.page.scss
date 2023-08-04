@@ -1,0 +1,42 @@
+ion-col {
+  height: calc(16 * var(--font-size));
+  width: calc(18 * var(--font-size));
+  max-height: calc(16 * var(--font-size));
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.text-content {
+  font-size: calc(0.8 * var(--font-size));
+}
+
+@media (max-width: 768px) {
+  ion-col {
+    max-height: 9rem;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  h5 {
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  p.text-content {
+    font-size: 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,124 @@
+<ion-content color="light">
+  <app-header [title]="'DASHBOARD.activities' | translate" [isShowBackButton]="false"> </app-header>
+  <div>
+    <div class="w-100 mx-2 text-right">
+      <ion-icon
+        slot="icon-only"
+        [name]="isShowFilters ? 'funnel-outline' : 'funnel'"
+        class="p-2 mx-3 mt-2 border rounded-circle"
+        (click)="toggleFilters()"
+      ></ion-icon>
+    </div>
+    <div id="filters" [class.hide-filters]="isShowFilters">
+      <ion-row class="mx-2 mt-sm-2">
+        <ion-col size="12" size-sm="6">
+          <ion-item color="light">
+            <ion-label color="dark">{{ 'DASHBOARD.ACTIVITIES.type' | translate }}:</ion-label>
+            <ion-select
+              interface="popover"
+              color="dark"
+              (ionChange)="updateCategoriesAndLoadData(from, to, categorySelect, mediaTypeSelect?.value)"
+              #mediaTypeSelect
+              value="all"
+            >
+              <ion-select-option value="all">
+                {{ 'DASHBOARD.all' | translate }}
+              </ion-select-option>
+              <ion-select-option *ngFor="let item of optionsType" [value]="item.value">
+                {{ item.name | translate }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-sm="6">
+          <ion-item color="light">
+            <ion-label>{{ 'DASHBOARD.ACTIVITIES.category' | translate }}:</ion-label>
+            <ion-select
+              interface="popover"
+              #categorySelect
+              (ionChange)="loadData(from, to, categorySelect?.value, mediaTypeSelect?.value)"
+              value="all"
+            >
+              <ion-select-option value="all">
+                {{ 'DASHBOARD.all' | translate }}
+              </ion-select-option>
+              <ng-container *ngIf="categories$ | async as categories">
+                <ion-select-option [value]="cate.id" *ngFor="let cate of categories">
+                  {{ cate.name }}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="mx-2">
+        <ion-col size="6">
+          <ion-item color="light">
+            <ion-label>{{ 'DASHBOARD.ACTIVITIES.from' | translate }}:</ion-label>
+
+            <ion-datetime-button datetime="dateTimeStart"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime
+                  id="dateTimeStart"
+                  presentation="date"
+                  [(ngModel)]="from"
+                  (ionChange)="loadData(from, to, categorySelect?.value, mediaTypeSelect?.value)"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item color="light">
+            <ion-label>{{ 'DASHBOARD.ACTIVITIES.to' | translate }}:</ion-label>
+
+            <ion-datetime-button datetime="dateTimeEnd"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime
+                  id="dateTimeEnd"
+                  presentation="date"
+                  [(ngModel)]="to"
+                  (ionChange)="loadData(from, to, categorySelect?.value, mediaTypeSelect?.value)"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <ion-item class="row mx-2 mt-2" color="dark">
+    <ion-col class="col-3">
+      <b>{{ 'DASHBOARD.ACTIVITIES.date' | translate }}</b>
+    </ion-col>
+    <ion-col class="col-6 col-sm-7 col-md-8">
+      <b>{{ 'DASHBOARD.ACTIVITIES.name_of_item' | translate }}</b>
+    </ion-col>
+    <ion-col class="col-3 col-sm-2 col-md-1">
+      <b>{{ 'DASHBOARD.ACTIVITIES.activity' | translate }}</b>
+    </ion-col>
+  </ion-item>
+  <div class="mb-5">
+    <ion-list *ngIf="activities$ | async as cachedActivites" color="light">
+      <ion-item
+        class="row mx-2 activities"
+        *ngFor="let item of cachedActivites?.results"
+        (click)="openPopup(item.date, item.media, item.action)"
+      >
+        <ion-col class="col-3">
+          <ion-label>{{ item.date | date: 'M/d/y, h:mm a' }}</ion-label>
+        </ion-col>
+        <ion-col class="col-6 col-sm-7 col-md-8">
+          <ion-label>{{ item.media }}</ion-label>
+        </ion-col>
+        <ion-col class="col-3 col-sm-2 col-md-1">
+          <ion-badge [color]="getBackgroundColor(item.action)">{{ item.action | uppercase }}</ion-badge>
+        </ion-col>
+      </ion-item>
+      <ion-item></ion-item>
+    </ion-list>
+  </div>
+</ion-content>

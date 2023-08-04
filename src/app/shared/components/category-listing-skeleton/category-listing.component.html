@@ -1,0 +1,52 @@
+<ion-list>
+  <ion-list-header>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-label color="dark">{{
+          'HOME.LIBRARY.BOOK.LIST.see_all' | translate
+        }}</ion-label>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-skeleton-text
+      class="font-cate"
+      style="width: 100px;"
+    ></ion-skeleton-text>
+  </ion-list-header>
+
+  <ion-slides [options]="slideConfig">
+    <ion-slide
+      *ngFor="
+        let book of [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ]
+      "
+    >
+      <ion-card class="size-card">
+        <ion-thumbnail class="size-image">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-card-header>
+          <ion-skeleton-text class="truncate"></ion-skeleton-text>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-list>

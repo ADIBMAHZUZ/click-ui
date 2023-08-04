@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true" color="light">
+  <app-header [title]="getTitle()" [isShowBackButton]="false"> </app-header>
+  <ion-grid class="px-2">
+    <ion-row class="h-25 p-2 p-sm-3 border-bottom" *ngFor="let news of cachedSchoolNews?.results" [routerLink]="[news.id]">
+      <ion-col *ngIf="news?.photo" size-md="4" class="px-2">
+        <img [src]="news.photo" [title]="news.title" />
+      </ion-col>
+      <ion-col size-md="8" class="px-2 px-sm-4">
+        <h5><b>{{news.title}}</b></h5>
+        <p class="text-content" [innerHTML]="news.content | slice:0:550"></p>
+      </ion-col>
+    </ion-row>
+    <!-- Infinite Scroll -->
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore()">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" [loadingText]="'HOME.SCHOOL_NEWS_BOARD.load_more' | translate">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-grid>
+</ion-content>

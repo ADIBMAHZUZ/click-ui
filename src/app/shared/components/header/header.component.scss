@@ -1,0 +1,31 @@
+ion-header::after {
+  height: 1px;
+  background-color: var(--ion-color-step-750);
+  bottom: 0;
+}
+.custom-icon {
+  font-size: 1.5rem;
+  border-radius: 2rem;
+}
+.custom-title {
+  margin-left: -0.5rem;
+}
+@media (max-width: 768px) {
+  h5 {
+    font-size: 1.05rem !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  ion-toolbar {
+    height: 2.5rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+}
+:host ::ng-deep {
+  ion-toolbar {
+    border-bottom: 1.5px solid #a1a1a1;
+  }
+}

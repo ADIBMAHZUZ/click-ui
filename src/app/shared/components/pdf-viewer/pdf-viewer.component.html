@@ -1,0 +1,14 @@
+<ion-content class="fixed-top h-100">
+  <ion-icon name="close-outline" class="fixed-bottom rounded-circle p-3 m-2 bg-danger" id="close" (click)="close()"></ion-icon>
+  <ng2-pdfjs-viewer
+    [viewerId]="path"
+    [print]="false"
+    [download]="false"
+    [openFile]="false"
+    [fullScreen]="false"
+    [useOnlyCssZoom]="true"
+    (onDocumentLoad)="handleDocumentLoad()"
+    (onPageChange)="handlePageChange($event)"
+    #pdfViewerAutoLoad
+  ></ng2-pdfjs-viewer>
+</ion-content>

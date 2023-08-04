@@ -1,0 +1,81 @@
+<section class="flex-grow-1" id="sidebar">
+  <div
+    class="py-2 px-3 border-bottom border-secondary d-block d-sm-none"
+    *ngIf="userInfo"
+  >
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex">
+        <ion-avatar>
+          <img [src]="userInfo?.logo || 'assets/images/avatar.png'" alt="" />
+        </ion-avatar>
+        <div class="d-flex flex-column ml-1 small">
+          <ion-text color="dark" class="mt-2"
+            >Hi, {{ userInfo?.name }}!</ion-text
+          >
+          <ion-text color="dark">{{ userInfo?.library.name }}</ion-text>
+        </div>
+      </div>
+      <div class="img-wrapper">
+        <img
+          [src]="userInfo?.library.logo || 'assets/images/avatar.png'"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="text-right mt-n1 small">
+      <ion-text color="dark">Cloud Library Information Center</ion-text>
+    </div>
+  </div>
+  <ion-list class="ml-1">
+    <ion-item
+      (click)="navigateTo('/home')"
+      button
+      detail="false"
+      [class.selected]="isAtHome()"
+    >
+      <ion-icon
+        src="assets/icons/home/home.svg"
+        color="dark"
+        class="mr-4"
+        slot="start"
+      ></ion-icon>
+      <h5>
+        <ion-text color="dark">{{ 'NAVBAR.home' | translate }}</ion-text>
+      </h5>
+    </ion-item>
+    <ion-item
+      (click)="navigateTo(item.url)"
+      *ngFor="let item of sidebarItems"
+      button
+      [class.selected]="selectedPath === item.url"
+      detail="false"
+    >
+      <ion-icon
+        color="dark"
+        [src]="item.icon"
+        class="mr-4"
+        slot="start"
+      ></ion-icon>
+      <h5>
+        <ion-text color="dark">
+          {{
+            language === 'ms'
+              ? userInfo.library[item.title + 'TitleMs']
+              : userInfo.library[item.title + 'TitleEn']
+          }}
+        </ion-text>
+      </h5>
+    </ion-item>
+    <ion-item button (click)="logout()" detail="false">
+      <ion-icon
+        color="dark"
+        src="assets/icons/home/logout.svg"
+        slot="start"
+        class="mr-4"
+      ></ion-icon>
+      <h5>
+        <ion-text color="dark">{{ 'NAVBAR.logout' | translate }}</ion-text>
+      </h5>
+    </ion-item>
+  </ion-list>
+</section>

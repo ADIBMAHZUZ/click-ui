@@ -1,0 +1,18 @@
+<ion-content color="light">
+  <ion-tabs #tabs (ionTabsDidChange)="tabChange(tabs)">
+    <ion-tab-bar slot="top" color="light" class="pt-sm-2" [class.d-none]="!(isTabbarVisible$ | async)">
+      <ion-tab-button tab="book" (click)="clickTab($event, 'book')" [routerLink]="['book']">
+        <ion-icon class="d-none d-sm-inline-block h4 mb-1" name="layers"></ion-icon>
+        <ion-label class="font-tab" color="dark"> {{'HOME.LIBRARY.MEDIA.book' | translate}}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="audio" (click)="clickTab($event, 'audio')" [routerLink]="['audio']">
+        <ion-icon class="d-none d-sm-inline-block h4 mb-1" name="musical-notes"></ion-icon>
+        <ion-label class="font-tab" color="dark">{{'HOME.LIBRARY.MEDIA.audio' | translate}}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="video" (click)="clickTab($event, 'video')" [routerLink]="['video']">
+        <ion-icon class="d-none d-sm-inline-block h4 mb-1" name="play-circle"></ion-icon>
+        <ion-label class="font-tab" color="dark">{{'HOME.LIBRARY.MEDIA.video' | translate}}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

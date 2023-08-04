@@ -1,0 +1,78 @@
+<ion-content [style]="homeBackground" class="no-scroll">
+  <ion-grid class="p-0" *ngIf="titles">
+    <ion-row>
+      <ion-col size="12" size-md="6" id="library" routerLink="library" class="section" [style]="getBackground(0)">
+        <ion-row class="h-100 d-flex align-items-center">
+          <ion-col class="badge">
+            <ion-icon src="assets/icons/home/library.svg"></ion-icon>
+          </ion-col>
+          <ion-col offset="3" size="8">
+            <h3>
+              <ion-text color="dark">{{language === 'ms' ? titles[0].titleMs : titles[0].titleEn}}</ion-text>
+            </h3>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" size-md="6" id="school-news" [routerLink]="['school-news']" class="section" [style]="getBackground(1)">
+        <ion-row class="h-100 d-flex align-items-center">
+          <ion-col class="badge">
+            <ion-icon src="assets/icons/home/school-news.svg"></ion-icon>
+          </ion-col>
+          <ion-col offset="3" size="8">
+            <h3>
+              <ion-text color="dark">{{language === 'ms' ? titles[1].titleMs : titles[1].titleEn}}</ion-text>
+            </h3>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" size-md="6" id="teacher-notes" [routerLink]="['teacher-notes']" class="section" [style]="getBackground(2)">
+        <ion-row class="h-100 d-flex align-items-center">
+          <ion-col class="badge">
+            <ion-icon src="assets/icons/home/teacher-notes.svg"></ion-icon>
+          </ion-col>
+          <ion-col offset="3" size="8">
+            <h3>
+              <ion-text color="dark">{{language === 'ms' ? titles[2].titleMs : titles[2].titleEn}}</ion-text>
+            </h3>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" size-md="6" id="material" [routerLink]="['material']" class="section" [style]="getBackground(3)">
+        <ion-row class="h-100 d-flex align-items-center">
+          <ion-col class="badge">
+            <ion-icon src="assets/icons/home/material.svg"></ion-icon>
+          </ion-col>
+          <ion-col offset="3" size="8">
+            <h3>
+              <ion-text color="dark">{{language === 'ms' ? titles[3].titleMs : titles[3].titleEn}}</ion-text>
+            </h3>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" size-md="6" id="school-history" [routerLink]="['school-history']" class="section" [style]="getBackground(4)">
+        <ion-row class="h-100 d-flex align-items-center">
+          <ion-col class="badge">
+            <ion-icon src="assets/icons/home/school-history.svg"></ion-icon>
+          </ion-col>
+          <ion-col offset="3" size="8">
+            <h3>
+              <ion-text color="dark">{{language === 'ms' ? titles[4].titleMs : titles[4].titleEn}}</ion-text>
+            </h3>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" size-md="6" id="student-content" [routerLink]="['student-content']" class="section" [style]="getBackground(5)">
+        <ion-row class="h-100 d-flex align-items-center">
+          <ion-col class="badge">
+            <ion-icon src="assets/icons/home/student-content.svg" class="pl-1"></ion-icon>
+          </ion-col>
+          <ion-col offset="3" size="8">
+            <h3>
+              <ion-text color="dark">{{language === 'ms' ? titles[5].titleMs : titles[5].titleEn}}</ion-text>
+            </h3>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

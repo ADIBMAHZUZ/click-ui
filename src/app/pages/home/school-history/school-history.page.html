@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true" color="light">
+  <app-header [title]="getTitle()" [isShowBackButton]="false"> </app-header>
+  <ion-grid class="p-0">
+    <ion-row>
+      <ion-col class="history-item border p-0" size="12" size-md="6" *ngFor="let item of schoolHistory?.results" [routerLink]="[item.id]">
+        <img [src]="item.photo" />
+        <ion-row class="title">
+          <h4 class="truncate">
+            <ion-text color="dark">{{item.title}}</ion-text>
+          </h4>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore()">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'HOME.SCHOOL_NEWS_BOARD.load_more' | translate}}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-grid>
+</ion-content>

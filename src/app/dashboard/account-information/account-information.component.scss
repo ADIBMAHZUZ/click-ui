@@ -1,0 +1,25 @@
+#dashboard {
+  padding-right: 2vw;
+  padding-top: 1vh;
+  padding-left: 1.1rem;
+}
+.img-wrapper {
+  width: 15rem;
+  height: 15rem !important;
+  max-width: 15rem;
+  max-height: 15rem !important;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-wrapper {
+    width: 8rem;
+    height: 8rem !important;
+  }
+}

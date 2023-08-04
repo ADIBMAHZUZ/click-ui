@@ -1,0 +1,14 @@
+<ion-content color="light">
+  <app-header [title]="getTitle()" [isShowBackButton]="false"> </app-header>
+  <ion-row class="p-2 mx-4 justify-content-start">
+    <ion-card *ngFor="let teacher of teachers?.results" #item [routerLink]="teacher.id">
+      <img [src]="teacher.logo || 'assets/images/avatar.png'" />
+
+      <ion-card-title class="text-center truncate"> {{teacher.name}} </ion-card-title>
+    </ion-card>
+  </ion-row>
+  <ion-infinite-scroll threshold="10%" (ionInfinite)="loadMore()">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'TEACHER_NOTES.loading_more_' | translate}}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

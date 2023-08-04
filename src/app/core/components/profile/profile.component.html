@@ -1,0 +1,58 @@
+<ion-content id="dashboard" color="light">
+  <app-header [title]="'DASHBOARD.dashboard' | translate" [isShowBackButton]="false"></app-header>
+  <div class="p-2">
+    <!-- <h4 class="border-bottom pb-2">
+      <b>{{ 'DASHBOARD.dashboard' | translate }}</b>
+    </h4> -->
+    <br />
+    <ion-card class="shadow-none">
+      <ion-avatar class="my-0 mx-auto img-wrapper">
+        <img [src]="cachedDashboard?.results.avatar || userInfo?.logo || 'assets/images/avatar.png'" />
+      </ion-avatar>
+      <ion-card-header class="text-center pb-0">
+        <ion-card-title class="truncate" color="dark">
+          {{ 'DASHBOARD.hi' | translate }},
+          <ion-text color="dark" class="d-inline-block" *ngIf="cachedDashboard?.results.name || userInfo?.name as userName">{{
+            userName.length > 20 ? userName.substring(0, 20) + '...' : userName
+          }}</ion-text>
+        </ion-card-title>
+        <ion-card-subtitle class="truncate">{{ cachedDashboard?.results.library || userInfo?.library.name }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+    <ion-row class="text-center">
+      <ion-col>
+        <h5 class="mt-0 mt-sm-2">{{ 'DASHBOARD.book' | translate }}</h5>
+        <h4 class="border mt-0 mt-sm-2 p-1 p-sm-2">
+          {{ cachedDashboard?.results.book }}
+        </h4>
+      </ion-col>
+      <ion-col>
+        <h5 class="mt-0 mt-sm-2">{{ 'DASHBOARD.audio' | translate }}</h5>
+        <h4 class="border mt-0 mt-sm-2 p-1 p-sm-2">
+          {{ cachedDashboard?.results.audio }}
+        </h4>
+      </ion-col>
+      <ion-col>
+        <h5 class="mt-0 mt-sm-2">{{ 'DASHBOARD.video' | translate }}</h5>
+        <h4 class="border mt-0 mt-sm-2 p-1 p-sm-2">
+          {{ cachedDashboard?.results.video }}
+        </h4>
+      </ion-col>
+    </ion-row>
+    <ion-list class="text-center">
+      <ion-item
+        (click)="navigateTo(item.url)"
+        button
+        *ngFor="let item of profileItems"
+        detail="true"
+        lines="none"
+        class="border-bottom"
+        [class.selected]="selectedPath === item.url"
+      >
+        <h6>
+          <ion-text color="dark">{{ item.title | translate }}</ion-text>
+        </h6>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,38 @@
+<audio controls #myAudio class="d-none">
+  <source [src]="audioDetail.path" type="audio/mpeg" />
+</audio>
+<ion-fab
+  color="dark"
+  class="fixed-bottom"
+  style="left: auto !important;"
+  *ngIf="audioDetail.path"
+>
+  <ion-fab-button color="dark" class="mr-2">
+    <ion-icon name="musical-notes-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="start">
+    <ion-fab-button
+      fill="clear"
+      *ngIf="audioDetail.audioElement.paused"
+      (click)="play()"
+      color="dark"
+    >
+      <ion-icon name="play"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button
+      fill="clear"
+      *ngIf="!audioDetail.audioElement.paused"
+      (click)="pause()"
+      color="dark"
+    >
+      <ion-icon name="pause"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button color="dark" (click)="stopPlaying()">
+      <ion-icon name="square-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="dark" (click)="openViewPlayer()">
+      <ion-icon name="list-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
